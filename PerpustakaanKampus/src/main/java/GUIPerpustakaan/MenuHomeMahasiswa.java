@@ -10,16 +10,16 @@ import ControllerPerpustakaan.ControllerApp;
  *
  * @author User
  */
-public class MenuHome extends javax.swing.JFrame {
+public class MenuHomeMahasiswa extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuHome
      */
     ControllerApp ck;
     
-    public MenuHome() {
+    public MenuHomeMahasiswa(ControllerApp ck) {
         initComponents();
-        ck = new ControllerApp(this);
+        this.ck = ck;
     }
 
     /**
@@ -32,7 +32,6 @@ public class MenuHome extends javax.swing.JFrame {
     private void initComponents() {
 
         Header = new javax.swing.JLabel();
-        LoginButton = new javax.swing.JButton();
         ListSemuaBukuButton = new javax.swing.JButton();
         RekomendasiLabel = new javax.swing.JLabel();
         BukuRec1 = new javax.swing.JLabel();
@@ -60,13 +59,6 @@ public class MenuHome extends javax.swing.JFrame {
 
         Header.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Header.setText("Perpustakaan Kampus");
-
-        LoginButton.setText("Login");
-        LoginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginButtonActionPerformed(evt);
-            }
-        });
 
         ListSemuaBukuButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ListSemuaBukuButton.setText("List Semua Buku");
@@ -148,9 +140,7 @@ public class MenuHome extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LoginButton)
-                        .addGap(23, 23, 23))
+                        .addGap(23, 461, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RekomendasiLabel)
@@ -190,9 +180,7 @@ public class MenuHome extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LoginButton, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Header, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RekomendasiLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -243,11 +231,6 @@ public class MenuHome extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        // TODO add your handling code here:
-        ck.showLoginMenu();
-    }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void ListSemuaBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListSemuaBukuButtonActionPerformed
         // TODO add your handling code here:
@@ -301,7 +284,6 @@ public class MenuHome extends javax.swing.JFrame {
     private javax.swing.JLabel BukuRec5;
     private javax.swing.JLabel Header;
     private javax.swing.JButton ListSemuaBukuButton;
-    private javax.swing.JButton LoginButton;
     private javax.swing.JLabel RekomendasiLabel;
     private javax.swing.JLabel TahunTerbitBukuRec1;
     private javax.swing.JLabel TahunTerbitBukuRec2;

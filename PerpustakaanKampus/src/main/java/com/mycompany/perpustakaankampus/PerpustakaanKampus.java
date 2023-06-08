@@ -6,6 +6,7 @@ package com.mycompany.perpustakaankampus;
 
 import GUIPerpustakaan.MenuHome;
 import GUIPerpustakaan.MenuLogin;
+import GUIPerpustakaan.MenuRiwayatPeminjaman;
 
 /**
  *
@@ -19,5 +20,7 @@ public class PerpustakaanKampus {
 //        login.setVisible(true);
         MenuHome home = new MenuHome();
         home.setVisible(true);
+//        MenuRiwayatPeminjaman riwayat = new MenuRiwayatPeminjaman();
+//        riwayat.setVisible(true);
     }
 }
