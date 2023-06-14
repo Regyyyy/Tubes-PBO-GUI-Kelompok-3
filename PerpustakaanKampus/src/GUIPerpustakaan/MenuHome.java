@@ -10,7 +10,7 @@ import ControllerPerpustakaan.ControllerApp;
  *
  * @author User
  */
-public class MenuHome extends javax.swing.JFrame {
+public class MenuHome extends javax.swing.JFrame implements NextToHome {
 
     /**
      * Creates new form MenuHome
@@ -31,42 +31,38 @@ public class MenuHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         Header = new javax.swing.JLabel();
-        LoginButton = new javax.swing.JButton();
-        ListSemuaBukuButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        RekomendasiLabel = new javax.swing.JLabel();
         BukuRec1 = new javax.swing.JLabel();
         TahunTerbitBukuRec1 = new javax.swing.JLabel();
         AbstrakBukuRec1 = new javax.swing.JLabel();
         ViewBukuRec1 = new javax.swing.JButton();
-        RekomendasiLabel = new javax.swing.JLabel();
+        BukuRec2 = new javax.swing.JLabel();
+        TahunTerbitBukuRec2 = new javax.swing.JLabel();
+        AbstrakBukuRec2 = new javax.swing.JLabel();
+        ViewBukuRec2 = new javax.swing.JButton();
+        BukuRec3 = new javax.swing.JLabel();
+        TahunTerbitBukuRec6 = new javax.swing.JLabel();
+        AbstrakBukuRec6 = new javax.swing.JLabel();
+        ViewBukuRec3 = new javax.swing.JButton();
+        BukuRec4 = new javax.swing.JLabel();
+        TahunTerbitBukuRec7 = new javax.swing.JLabel();
+        AbstrakBukuRec7 = new javax.swing.JLabel();
+        ViewBukuRec4 = new javax.swing.JButton();
+        BukuRec5 = new javax.swing.JLabel();
+        TahunTerbitBukuRec8 = new javax.swing.JLabel();
+        AbstrakBukuRec8 = new javax.swing.JLabel();
+        ViewBukuRec5 = new javax.swing.JButton();
+        ListSemuaBukuButton = new javax.swing.JButton();
+        LoginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(972, 540));
-        setResizable(false);
-
-        jPanel1.setPreferredSize(new java.awt.Dimension(960, 720));
 
         Header.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         Header.setText("Perpustakaan Kampus");
 
-        LoginButton.setText("Login");
-        LoginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginButtonActionPerformed(evt);
-            }
-        });
-
-        ListSemuaBukuButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ListSemuaBukuButton.setText("List Semua Buku");
-        ListSemuaBukuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListSemuaBukuButtonActionPerformed(evt);
-            }
-        });
-
-        jPanel2.setPreferredSize(new java.awt.Dimension(897, 501));
+        RekomendasiLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        RekomendasiLabel.setText("Rekomendasi Buku");
 
         BukuRec1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         BukuRec1.setText("Buku 1");
@@ -80,100 +76,174 @@ public class MenuHome extends javax.swing.JFrame {
         ViewBukuRec1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         ViewBukuRec1.setText("View");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TahunTerbitBukuRec1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(BukuRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(AbstrakBukuRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(127, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ViewBukuRec1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(AbstrakBukuRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BukuRec1)
-                .addGap(47, 47, 47)
-                .addComponent(TahunTerbitBukuRec1)
-                .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 67, Short.MAX_VALUE)
-                    .addComponent(ViewBukuRec1)
-                    .addGap(0, 68, Short.MAX_VALUE)))
-        );
+        BukuRec2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BukuRec2.setText("Buku 2");
+        BukuRec2.setName(""); // NOI18N
 
-        RekomendasiLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        RekomendasiLabel.setText("Rekomendasi Buku");
+        TahunTerbitBukuRec2.setText("Tahun Rilis Buku 2");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LoginButton)
-                .addGap(22, 22, 22))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(ListSemuaBukuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(400, 400, 400)
-                        .addComponent(RekomendasiLabel)))
-                .addContainerGap(265, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(283, 283, 283)
-                .addComponent(RekomendasiLabel)
-                .addGap(79, 79, 79))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(LoginButton)
-                .addGap(76, 76, 76)
-                .addComponent(ListSemuaBukuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        AbstrakBukuRec2.setText("Abstrak Buku 2");
+        AbstrakBukuRec2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        ViewBukuRec2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        ViewBukuRec2.setText("View");
+
+        BukuRec3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BukuRec3.setText("Buku 3");
+        BukuRec3.setName(""); // NOI18N
+
+        TahunTerbitBukuRec6.setText("Tahun Rilis Buku 3");
+
+        AbstrakBukuRec6.setText("Abstrak Buku 3");
+        AbstrakBukuRec6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        ViewBukuRec3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        ViewBukuRec3.setText("View");
+
+        BukuRec4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BukuRec4.setText("Buku 4");
+        BukuRec4.setName(""); // NOI18N
+
+        TahunTerbitBukuRec7.setText("Tahun Rilis Buku 4");
+
+        AbstrakBukuRec7.setText("Abstrak Buku 4");
+        AbstrakBukuRec7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        ViewBukuRec4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        ViewBukuRec4.setText("View");
+
+        BukuRec5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        BukuRec5.setText("Buku 5");
+        BukuRec5.setName(""); // NOI18N
+
+        TahunTerbitBukuRec8.setText("Tahun Rilis Buku 5");
+
+        AbstrakBukuRec8.setText("Abstrak Buku 5");
+        AbstrakBukuRec8.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        ViewBukuRec5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        ViewBukuRec5.setText("View");
+
+        ListSemuaBukuButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ListSemuaBukuButton.setText("List Semua Buku");
+        ListSemuaBukuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListSemuaBukuButtonActionPerformed(evt);
+            }
+        });
+
+        LoginButton.setText("Login");
+        LoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RekomendasiLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(TahunTerbitBukuRec1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(AbstrakBukuRec1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BukuRec1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(TahunTerbitBukuRec2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(AbstrakBukuRec2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BukuRec2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(TahunTerbitBukuRec6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(AbstrakBukuRec6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BukuRec3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(TahunTerbitBukuRec7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(AbstrakBukuRec7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BukuRec4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(TahunTerbitBukuRec8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(AbstrakBukuRec8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BukuRec5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(79, 79, 79))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ViewBukuRec2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ViewBukuRec3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ViewBukuRec4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ViewBukuRec5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ViewBukuRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(62, 62, 62)))
+                                .addComponent(ListSemuaBukuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(218, 218, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LoginButton)
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 812, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LoginButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RekomendasiLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BukuRec1)
+                .addGap(3, 3, 3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(TahunTerbitBukuRec1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AbstrakBukuRec1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ViewBukuRec1))
+                    .addComponent(ListSemuaBukuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BukuRec2)
+                .addGap(3, 3, 3)
+                .addComponent(TahunTerbitBukuRec2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AbstrakBukuRec2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ViewBukuRec2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BukuRec3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TahunTerbitBukuRec6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AbstrakBukuRec6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ViewBukuRec3)
+                .addGap(20, 20, 20)
+                .addComponent(BukuRec4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TahunTerbitBukuRec7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AbstrakBukuRec7, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ViewBukuRec4)
+                .addGap(18, 18, 18)
+                .addComponent(BukuRec5)
+                .addGap(3, 3, 3)
+                .addComponent(TahunTerbitBukuRec8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AbstrakBukuRec8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ViewBukuRec5)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,14 +295,29 @@ public class MenuHome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AbstrakBukuRec1;
+    private javax.swing.JLabel AbstrakBukuRec2;
+    private javax.swing.JLabel AbstrakBukuRec6;
+    private javax.swing.JLabel AbstrakBukuRec7;
+    private javax.swing.JLabel AbstrakBukuRec8;
     private javax.swing.JLabel BukuRec1;
+    private javax.swing.JLabel BukuRec2;
+    private javax.swing.JLabel BukuRec3;
+    private javax.swing.JLabel BukuRec4;
+    private javax.swing.JLabel BukuRec5;
     private javax.swing.JLabel Header;
     private javax.swing.JButton ListSemuaBukuButton;
     private javax.swing.JButton LoginButton;
     private javax.swing.JLabel RekomendasiLabel;
     private javax.swing.JLabel TahunTerbitBukuRec1;
+    private javax.swing.JLabel TahunTerbitBukuRec2;
+    private javax.swing.JLabel TahunTerbitBukuRec6;
+    private javax.swing.JLabel TahunTerbitBukuRec7;
+    private javax.swing.JLabel TahunTerbitBukuRec8;
     private javax.swing.JButton ViewBukuRec1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton ViewBukuRec2;
+    private javax.swing.JButton ViewBukuRec3;
+    private javax.swing.JButton ViewBukuRec4;
+    private javax.swing.JButton ViewBukuRec5;
     // End of variables declaration//GEN-END:variables
+
 }
