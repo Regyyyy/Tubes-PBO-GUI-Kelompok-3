@@ -7,6 +7,9 @@ package perpustakaankampus;
 import GUIPerpustakaan.MenuHome;
 import GUIPerpustakaan.MenuLogin;
 import GUIPerpustakaan.MenuRiwayatPeminjaman;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  *
@@ -14,8 +17,23 @@ import GUIPerpustakaan.MenuRiwayatPeminjaman;
  */
 public class PerpustakaanKampus {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         System.out.println("Hello World!");
+        
+        Guest g = new Guest();
+        List<Buku> list = g.lihatRekomendasiBuku();
+        for (Buku e: list) {
+            System.out.println(e.getFrekPeminjaman());
+        }
+        
+        // https://www.javatpoint.com/java-string-to-date
+        String sDate1="31/12/1998";
+        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
+        Date date1=formatter1.parse(sDate1);
+        String date2 = formatter1.format(date1);
+        System.out.println(sDate1+"\t"+date1+"\t"+date2);
+        
+        
 //        MenuLogin login = new MenuLogin();
 //        login.setVisible(true);
         MenuHome home = new MenuHome();

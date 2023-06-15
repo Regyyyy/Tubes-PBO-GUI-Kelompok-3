@@ -10,7 +10,7 @@ import ControllerPerpustakaan.ControllerApp;
  *
  * @author User
  */
-public class MenuLogin extends javax.swing.JFrame implements NextToHome {
+public class MenuLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuHome

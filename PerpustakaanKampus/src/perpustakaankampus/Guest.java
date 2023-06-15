@@ -4,6 +4,7 @@
  */
 package perpustakaankampus;
 
+import Komparasi.ComparatorFrekuensi;
 import java.util.*;
 
 /**
@@ -41,6 +42,14 @@ public class Guest {
         listBuku.add(new Buku("B004", "Zero to One", "Blake Masters", "Zero to One (2014) mengungkap cara membangun sebuah perusahaan startup sukses yang mampu menjawab tantangan masa depan yang penuh dengan ketidakpastian. Di dalam buku ini Anda juga akan mempelajari prinsip-prinsip yang harus dimiliki oleh sebuah peru", "Bisnis", "2014", 5, 16));
         listBuku.add(new Buku("B005", "The Monk and The Riddle", "Randy Komisar", "\\\"The Monk and the Riddle\\\" adalah sebuah buku yang mengisahkan perjalanan hidup seorang pengusaha sukses yang mencari arti sejati dalam hidupnya. Cerita ini mengungkapkan konflik antara keinginan untuk menghasilkan keuntungan finansial dan kepuasan pr", "Bisnis", "2000", 5, 3));
         listBuku.add(new Buku("B006", "To Kill a Mockingbird", "Harper Lee", "\\\"To Kill a Mockingbird\\\" adalah sebuah novel klasik yang ditulis oleh Harper Lee.\\", "Bisnis", "1960", 5, 7));
+        
+        Collections.sort(listBuku, new ComparatorFrekuensi());
+//        Collections.sort(listBuku, Comparator.reverseOrder());
+        
+        for (int i = 0; i < 5; i++) {
+            newListBuku.add(listBuku.get(i));
+        }
+        
         return newListBuku;
     }
     

@@ -8,6 +8,6 @@ package GUIPerpustakaan;
  *
  * @author User
  */
-public interface NextToHome {
-
+public interface MenuAdmin {
+    
 }
