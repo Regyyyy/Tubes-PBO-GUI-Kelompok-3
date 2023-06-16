@@ -48,10 +48,10 @@ public class DatabaseBuku {
         }
     }
     
-    public List<Buku> getAdmin(String kodeAdmin){
+    public List<Buku> getBuku(String kodeBuku){
         listBuku = new ArrayList<>();
         Statement  statement;
-        String sql = "SELECT * FROM admin WHERE KodeAdmin = " + kodeAdmin;
+        String sql = "SELECT * FROM admin WHERE KodeBuku = " + kodeBuku;
         try {
             statement = dbConnection.getConnection().createStatement();
             
@@ -79,7 +79,7 @@ public class DatabaseBuku {
     
     public void insertAdmin(Buku buku){
         String sql;
-        sql = "INSERT INTO admin (KodeBuku, JudulBuku, Penulis, KategoriBuku, TahunTerbit, StokBuku, frekuensi, Abstrak) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO buku (KodeBuku, JudulBuku, Penulis, KategoriBuku, TahunTerbit, StokBuku, frekuensi, Abstrak) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement state = dbConnection.getConnection().prepareStatement(sql);
             state.setString(1, buku.getKodeBuku());
@@ -101,7 +101,7 @@ public class DatabaseBuku {
     
     public void updateBuku(Buku buku){
         String sql;
-        sql = "UPDATE admin SET KodeBuku = ?, JudulBuku = ?, Penulis = ?, KategoriBuku = ?, TahunTerbit = ?, StokBuku = ?, frekuensi = ?, Abstrak = ?";
+        sql = "UPDATE buku SET KodeBuku = ?, JudulBuku = ?, Penulis = ?, KategoriBuku = ?, TahunTerbit = ?, StokBuku = ?, frekuensi = ?, Abstrak = ?";
         try {
             PreparedStatement state = dbConnection.getConnection().prepareStatement(sql);
             state.setString(1, buku.getKodeBuku());

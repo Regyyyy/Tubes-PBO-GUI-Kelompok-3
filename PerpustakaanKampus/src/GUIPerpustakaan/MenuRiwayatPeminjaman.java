@@ -5,21 +5,40 @@
 package GUIPerpustakaan;
 
 import ControllerPerpustakaan.ControllerApp;
+import javax.swing.table.DefaultTableModel;
+import DatabasePerpustakaan.DatabaseRiwayatPeminjaman;
 
 /**
  *
  * @author User
  */
 public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
-
+    
+    public DefaultTableModel model;
+    String IdPinjam, NIM, KodeBuku, JudulBuku, TanggalPinjam, BatasPinjam, Disetujui, Selesai, Denda,KondisiBuku;
     /**
      * Creates new form MenuRiwayatPeminjaman1
      */
     private ControllerApp ck;
+    public DatabaseRiwayatPeminjaman peminjaman = new DatabaseRiwayatPeminjaman();
     
     public MenuRiwayatPeminjaman(ControllerApp ck) {
         initComponents();
         this.ck = ck;
+         model = new DefaultTableModel();
+        tableRiwayat.setModel(model);
+        model.addColumn("IDPeminjaman");
+        model.addColumn("NIM");
+        model.addColumn("KodeBuku");
+        model.addColumn("JudulBuku");
+        model.addColumn("TanggalPinjam");
+        model.addColumn("BatasPinjam");
+        model.addColumn("Disetujui");
+        model.addColumn("Selesai");
+        model.addColumn("Denda");
+        model.addColumn("KondisiBuku");
+        
+        ck.showRiwayatPeminjamanMenu();
     }
 
     /**
@@ -35,7 +54,7 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
         BackButton = new javax.swing.JButton();
         Header = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableRiwayat = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,7 +69,7 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
         Header.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         Header.setText("Riwayat Peminjaman");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableRiwayat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -85,7 +104,7 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableRiwayat);
 
         jButton1.setText("Perpanjang Peminjaman");
 
@@ -147,9 +166,9 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+ //  public static void main(String args[]) {
+       /* Set the Nimbus look and feel */
+       //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
 //        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
 //         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
 //         */
@@ -170,14 +189,15 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
 //            java.util.logging.Logger.getLogger(MenuRiwayatPeminjaman1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
 //        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new MenuRiwayatPeminjaman().setVisible(true);
-//            }
-//        });
-//    }
+
+      /* Create and display the form */
+     //   java.awt.EventQueue.invokeLater(new Runnable() {
+   //         @Override        
+       //     public void run() {
+         //       new MenuRiwayatPeminjaman().setVisible(true);
+           // }
+       // });
+   // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
@@ -185,7 +205,7 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableRiwayat;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -234,7 +254,7 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
      * @return the jTable1
      */
     public javax.swing.JTable getjTable1() {
-        return jTable1;
+        return tableRiwayat;
     }
     
 }

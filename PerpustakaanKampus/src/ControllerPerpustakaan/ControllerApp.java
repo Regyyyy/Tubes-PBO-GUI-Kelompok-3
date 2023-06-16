@@ -205,7 +205,7 @@ public class ControllerApp {
     public void showRiwayatPeminjamanMenu() {
         homeMhs.setVisible(false);
         List<Peminjaman> listRiwayat = new ArrayList();
-        listRiwayat.add(new Peminjaman("a","b","c")); 
+        listRiwayat.add(new Peminjaman()); 
 //        riwayat.getjTable1().setModel(listRiwayat);
         riwayat.setVisible(true);
     }
