@@ -21,6 +21,7 @@ public class ControllerApp {
     private MenuHomeMahasiswa homeMhs;
     private MenuHomeAdmin homeAdmin;
     private MenuRiwayatPeminjaman riwayat;
+    private MenuDetailBuku detailBuku;
     
     // Declare semua class database.
     private DatabaseBuku dbBuku;
@@ -44,6 +45,7 @@ public class ControllerApp {
         riwayat = new MenuRiwayatPeminjaman(this);
         homeMhs = new MenuHomeMahasiswa(this);
         homeAdmin = new MenuHomeAdmin(this);
+        detailBuku = new MenuDetailBuku(this);
         
         // Pembuatan semua class database.
         dbBuku = new DatabaseBuku();
@@ -51,6 +53,7 @@ public class ControllerApp {
         dbPeminjaman = new DatabaseRiwayatPeminjaman();
         
         // Pembuatan variable user.
+        loginAs = "Guest";
         guestAccount = new Guest();
         
         // Mendapatkan rekomendasi buku dan menampilkannya di semua main menu.
@@ -203,9 +206,29 @@ public class ControllerApp {
         homeMhs.setVisible(false);
         List<Peminjaman> listRiwayat = new ArrayList();
         listRiwayat.add(new Peminjaman("a","b","c")); 
-        riwayat.getjTable1().setModel(listRiwayat);
+//        riwayat.getjTable1().setModel(listRiwayat);
         riwayat.setVisible(true);
     }
     
-    
+    public void showRecommendedBookDetails(int idx) {
+        if (loginAs.equals("Admin")) {
+            homeAdmin.setVisible(false);
+        } else if (loginAs.equals("Mahasiswa")) {
+            homeMhs.setVisible(false);
+        } else {
+            home.setVisible(false);
+        }
+        
+        detailBuku.getJudulBuku().setText("Judul : "+RecommendedBooks.get(idx).getJudulBuku());
+        detailBuku.getjLabel1().setText("Kode buku : "+RecommendedBooks.get(idx).getKodeBuku());
+        detailBuku.getjLabel2().setText("Author : "+RecommendedBooks.get(idx).getAuthor());
+        detailBuku.getjLabel3().setText("Tahun terbit : "+RecommendedBooks.get(idx).getTahunTerbit());
+        detailBuku.getjLabel4().setText("Kategori : "+RecommendedBooks.get(idx).getKategoriBuku());
+        detailBuku.getjLabel5().setText("Stok buku : "+RecommendedBooks.get(idx).getStokBuku());
+        detailBuku.getjLabel6().setText("Banyak peminjaman : "+RecommendedBooks.get(idx).getFrekPeminjaman());
+        // Belum bisa warp text.
+        detailBuku.getjLabel7().setText("Abstract : \n"+RecommendedBooks.get(idx).getAbstrak());
+        detailBuku.setVisible(true);
+        
+    }
 }

@@ -108,6 +108,48 @@ public class Buku {
     public void setFrekPeminjaman(int frekPeminjaman) {
         this.frekPeminjaman = frekPeminjaman;
     }
+
+    /**
+     * @param kodeBuku the kodeBuku to set
+     */
+    public void setKodeBuku(String kodeBuku) {
+        this.kodeBuku = kodeBuku;
+    }
+
+    /**
+     * @param judulBuku the judulBuku to set
+     */
+    public void setJudulBuku(String judulBuku) {
+        this.judulBuku = judulBuku;
+    }
+
+    /**
+     * @param author the author to set
+     */
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    /**
+     * @param abstrak the abstrak to set
+     */
+    public void setAbstrak(String abstrak) {
+        this.abstrak = abstrak;
+    }
+
+    /**
+     * @param kategoriBuku the kategoriBuku to set
+     */
+    public void setKategoriBuku(String kategoriBuku) {
+        this.kategoriBuku = kategoriBuku;
+    }
+
+    /**
+     * @param tahunTerbit the tahunTerbit to set
+     */
+    public void setTahunTerbit(String tahunTerbit) {
+        this.tahunTerbit = tahunTerbit;
+    }
     
     
 }

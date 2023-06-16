@@ -80,6 +80,11 @@ public class MenuHome extends javax.swing.JFrame {
 
         ViewBukuRec1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         ViewBukuRec1.setText("View");
+        ViewBukuRec1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewBukuRec1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -431,12 +436,18 @@ public class MenuHome extends javax.swing.JFrame {
 
     private void ListSemuaBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListSemuaBukuButtonActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ListSemuaBukuButtonActionPerformed
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         // TODO add your handling code here:
-        getCk().showLoginMenu();
+        ck.showLoginMenu();
     }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void ViewBukuRec1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBukuRec1ActionPerformed
+        // TODO add your handling code here:
+        ck.showRecommendedBookDetails(0);
+    }//GEN-LAST:event_ViewBukuRec1ActionPerformed
 
     /**
      * @param args the command line arguments
