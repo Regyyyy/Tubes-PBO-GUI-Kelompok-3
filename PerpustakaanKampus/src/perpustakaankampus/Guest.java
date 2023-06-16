@@ -18,8 +18,12 @@ public class Guest {
         //Perlu akses ke class DatabaseBuku
     }
     
-    public void login() {
+    /*
+    Method untuk melakukan login
+    */
+    public boolean login(String pilihan) {
         //perlu akses ke class DatabaseMember
+        return true;
     }
     
     public void cariBuku() {
@@ -52,13 +56,4 @@ public class Guest {
         
         return newListBuku;
     }
-    
-    /*
-('F001', 'To Kill a Mockingbird', 'Harper Lee', 'Fiksi', '1960', 5, 7, '\"To Kill a Mockingbird\" adalah sebuah novel klasik yang ditulis oleh Harper Lee.\"'),
-('F002', '1984', 'George Orwell', 'Fiksi', '1949', 5, 21, '\"1984\" adalah sebuah karya sastra distopia yang menggambarkan masyarakat yang dikuasai oleh rezim otoriter yang disebut \"Big Brother\". Cerita ini mengikuti perjalanan Winston Smith, seorang pegawai.'),
-('F003', 'Pride and Prejudice', 'Jane Austen', 'Fiksi', '1813', 5, 25, 'Di tengah masyarakat Inggris pada awal abad ke-19, Elizabeth Bennet, seorang gadis cerdas dan mandiri, harus menghadapi tekanan budaya untuk menikah. Ketika Fitzwilliam Darcy, seorang pria kaya dan sopan santun.'),
-('F004', 'The Great Gatsby', 'F. Scott Fitzgerald', 'Fiksi', '1925', 5, 9, '\"The Great Gatsby\" adalah sebuah kisah yang berlatar belakang era Jazz Age di Amerika Serikat tahun 1920-an. Diceritakan melalui sudut pandang Nick Carraway, seorang pengamat yang pindah ke New York, '),
-('F005', 'The Lord of the Rings', 'J.R.R. Tolkien', 'Fiksi', '1954', 5, 2, '\"The Lord of the Rings\" adalah sebuah epik fantasi yang mengisahkan petualangan sekelompok makhluk-makhluk dari berbagai ras yang bertujuan untuk menghancurkan Cincin Kekuasaan yang jahat. Mereka harus bersama.'),
-
-    */
 }

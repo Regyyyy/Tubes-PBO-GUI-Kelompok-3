@@ -135,6 +135,8 @@ public class ControllerApp {
         login.getjRadioButton1().setActionCommand("Mahasiswa");
         login.getjRadioButton2().setActionCommand("Admin");
         
+        boolean hasil = guestAccount.login(login.getButtonGroup1().getSelection().getActionCommand());
+        
         try {
             if (login.getButtonGroup1().getSelection().getActionCommand().equals("Mahasiswa")) {
             

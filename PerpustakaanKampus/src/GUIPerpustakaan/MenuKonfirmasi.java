@@ -4,6 +4,8 @@
  */
 package GUIPerpustakaan;
 
+import ControllerPerpustakaan.ControllerApp;
+
 /**
  *
  * @author User
@@ -13,8 +15,11 @@ public class MenuKonfirmasi extends javax.swing.JFrame {
     /**
      * Creates new form MenuKonfirmasi
      */
-    public MenuKonfirmasi() {
+    ControllerApp ck;
+    
+    public MenuKonfirmasi(ControllerApp ck) {
         initComponents();
+        this.ck = ck;
     }
 
     /**
