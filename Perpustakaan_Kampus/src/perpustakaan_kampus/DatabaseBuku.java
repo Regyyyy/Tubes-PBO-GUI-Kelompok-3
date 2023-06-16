@@ -50,10 +50,10 @@ public class DatabaseBuku {
         }
     }
     
-    public List<Buku> getAdmin(String kodeAdmin){
+    public List<Buku> getBuku(String kodeBuku){
         listBuku = new ArrayList<>();
         Statement  statement;
-        String sql = "SELECT * FROM admin WHERE KodeAdmin = " + kodeAdmin;
+        String sql = "SELECT * FROM buku WHERE KodeBuku = " + kodeBuku;
         try {
             statement = DBConnection.getConnection().createStatement();
             
@@ -79,9 +79,9 @@ public class DatabaseBuku {
         }
     }
     
-    public void insertAdmin(Buku buku){
+    public void insertBuku(Buku buku){
         String sql;
-        sql = "INSERT INTO admin (KodeBuku, JudulBuku, Penulis, KategoriBuku, TahunTerbit, StokBuku, frekuensi, Abstrak) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO buku (KodeBuku, JudulBuku, Penulis, KategoriBuku, TahunTerbit, StokBuku, frekuensi, Abstrak) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement state = DBConnection.getConnection().prepareStatement(sql);
             state.setString(1, buku.getKodeBuku());
@@ -101,9 +101,9 @@ public class DatabaseBuku {
         }
     }
     
-    public void updateAdmin(Buku buku){
+    public void updateBuku(Buku buku){
         String sql;
-        sql = "UPDATE admin SET KodeBuku = ?, JudulBuku = ?, Penulis = ?, KategoriBuku = ?, TahunTerbit = ?, StokBuku = ?, frekuensi = ?, Abstrak = ?";
+        sql = "UPDATE buku SET KodeBuku = ?, JudulBuku = ?, Penulis = ?, KategoriBuku = ?, TahunTerbit = ?, StokBuku = ?, frekuensi = ?, Abstrak = ?";
         try {
             PreparedStatement state = DBConnection.getConnection().prepareStatement(sql);
             state.setString(1, buku.getKodeBuku());
@@ -123,7 +123,7 @@ public class DatabaseBuku {
         }
     }
     
-    public void deleteAdmin(Buku buku){
+    public void deleteBuku(Buku buku){
         String sql;
         sql = "DELETE FROM buku WHERE KodeBuku = ?";
         PreparedStatement state;
