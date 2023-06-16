@@ -32,7 +32,7 @@ public class TablePeminjaman extends AbstractTableModel {
     
     public Object getValueAt(int rowIndex, int columnIndex) {
          switch (columnIndex) {
-            case 0: return listPeminjaman.get(rowIndex).getMahasiswa();
+            case 0: return listPeminjaman.get(rowIndex).getNim();
             case 1: return listPeminjaman.get(rowIndex).getBuku();
             case 2: return listPeminjaman.get(rowIndex).getTanggalPinjam();
             case 3: return listPeminjaman.get(rowIndex).isDisetujui();

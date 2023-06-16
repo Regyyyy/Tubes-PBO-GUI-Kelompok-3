@@ -10,12 +10,12 @@ import ControllerPerpustakaan.ControllerApp;
  *
  * @author User
  */
-public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
+public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMahasiswa {
 
     /**
      * Creates new form MenuRiwayatPeminjaman1
      */
-    private ControllerApp ck;
+    ControllerApp ck;
     
     public MenuRiwayatPeminjaman(ControllerApp ck) {
         initComponents();
@@ -141,7 +141,7 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame {
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
-        getCk().showHomeMenu(this);
+        ck.showHomeMenu(this);
     }//GEN-LAST:event_BackButtonActionPerformed
 
     /**

@@ -476,6 +476,7 @@ public class MenuHomeMahasiswa extends javax.swing.JFrame {
 
     private void PeminjamanBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeminjamanBukuButtonActionPerformed
         // TODO add your handling code here:
+        ck.showPeminjamanBukuMenu();
     }//GEN-LAST:event_PeminjamanBukuButtonActionPerformed
 
     private void RiwayatPeminjamanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RiwayatPeminjamanButtonActionPerformed
@@ -485,6 +486,7 @@ public class MenuHomeMahasiswa extends javax.swing.JFrame {
 
     private void PengembalianBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PengembalianBukuButtonActionPerformed
         // TODO add your handling code here:
+        ck.showPengembalianBukuMenu();
     }//GEN-LAST:event_PengembalianBukuButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed

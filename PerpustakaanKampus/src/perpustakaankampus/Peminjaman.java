@@ -9,7 +9,7 @@ package perpustakaankampus;
  * @author User
  */
 public class Peminjaman {
-    private String mahasiswa;
+    private String nim;
     private String buku;
     private String tanggalPinjam;
     private boolean disetujui;
@@ -17,8 +17,8 @@ public class Peminjaman {
     private int denda;
     private String kondisiBuku;
     
-    public Peminjaman(String mahasiswa, String buku, String tanggalPinjam) {
-        this.mahasiswa = mahasiswa;
+    public Peminjaman(String nim, String buku, String tanggalPinjam) {
+        this.nim = nim;
         this.buku = buku;
         this.tanggalPinjam = tanggalPinjam;
         this.disetujui = false;
@@ -30,8 +30,8 @@ public class Peminjaman {
     /**
      * @return the mahasiswa
      */
-    public String getMahasiswa() {
-        return mahasiswa;
+    public String getNim() {
+        return nim;
     }
 
     /**

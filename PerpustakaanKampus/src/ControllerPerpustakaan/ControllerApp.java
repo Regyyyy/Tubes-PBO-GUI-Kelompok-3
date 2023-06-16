@@ -22,6 +22,11 @@ public class ControllerApp {
     private MenuHomeAdmin homeAdmin;
     private MenuRiwayatPeminjaman riwayat;
     private MenuDetailBuku detailBuku;
+    private MenuPeminjamanBuku peminjamanBuku;
+    private MenuPengembalianBuku pengembalianBuku;
+    private MenuListBuku listBuku;
+    private MenuUpdateBuku updateBuku;
+    private MenuKonfirmasi konfirmasi;
     
     // Declare semua class database.
     private DatabaseBuku dbBuku;
@@ -46,6 +51,8 @@ public class ControllerApp {
         homeMhs = new MenuHomeMahasiswa(this);
         homeAdmin = new MenuHomeAdmin(this);
         detailBuku = new MenuDetailBuku(this);
+        peminjamanBuku = new MenuPeminjamanBuku(this);
+        pengembalianBuku = new MenuPengembalianBuku(this);
         
         // Pembuatan semua class database.
         dbBuku = new DatabaseBuku();
@@ -210,6 +217,9 @@ public class ControllerApp {
         riwayat.setVisible(true);
     }
     
+    /*
+    Method untuk menampilkan laman buku khusus yang rekomendasi.
+    */
     public void showRecommendedBookDetails(int idx) {
         if (loginAs.equals("Admin")) {
             homeAdmin.setVisible(false);
@@ -229,6 +239,22 @@ public class ControllerApp {
         // Belum bisa warp text.
         detailBuku.getjLabel7().setText("Abstract : \n"+RecommendedBooks.get(idx).getAbstrak());
         detailBuku.setVisible(true);
-        
     }
+    
+    /*
+    Method untuk menampilkan laman peminjaman buku.
+    */
+    public void showPeminjamanBukuMenu() {
+        homeMhs.setVisible(false);
+        peminjamanBuku.setVisible(true);
+    }
+    
+    /*
+    Method untuk menampilkan laman pengembalian buku.
+    */
+    public void showPengembalianBukuMenu() {
+        homeMhs.setVisible(false);
+        pengembalianBuku.setVisible(true);
+    }
+    
 }
