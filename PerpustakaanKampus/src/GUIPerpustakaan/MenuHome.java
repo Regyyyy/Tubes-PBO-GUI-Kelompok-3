@@ -343,6 +343,11 @@ public class MenuHome extends javax.swing.JFrame {
         );
 
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -448,6 +453,11 @@ public class MenuHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         ck.showRecommendedBookDetails(0);
     }//GEN-LAST:event_ViewBukuRec1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ck.showSearch();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -753,6 +763,8 @@ public class MenuHome extends javax.swing.JFrame {
         return jPanel8;
     }
 
-    
+    public javax.swing.JTextField getjTextField1() {
+        return jTextField1;
+    }
     
 }

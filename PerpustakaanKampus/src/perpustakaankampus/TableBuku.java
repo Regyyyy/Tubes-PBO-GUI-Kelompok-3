@@ -44,11 +44,5 @@ public class TableBuku extends AbstractTableModel {
             default -> null;
         };
     }
-    public void printAll(){
-        kolom = getColumnCount();
-        baris = getRowCount();
-        System.out.println(kolom);
-        System.out.println(baris);
-    }
     
 }

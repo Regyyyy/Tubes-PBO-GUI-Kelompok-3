@@ -139,9 +139,7 @@ public class ControllerApp {
         String passwordInput = login.getjPasswordField1().getText();
         login.getjRadioButton1().setActionCommand("Mahasiswa");
         login.getjRadioButton2().setActionCommand("Admin");
-        
-        boolean hasil = guestAccount.login(login.getButtonGroup1().getSelection().getActionCommand());
-        
+                
         try {
             if (login.getButtonGroup1().getSelection().getActionCommand().equals("Mahasiswa")) {
             
@@ -207,8 +205,6 @@ public class ControllerApp {
     */
     public void showLoginMenu() {
         home.setVisible(false);
-        login.getjTextField1().setText("regy");
-        login.getjPasswordField1().setText("1234");
         login.getjRadioButton1().setSelected(true);
         login.setVisible(true);
     }
@@ -228,6 +224,24 @@ public class ControllerApp {
     */
     public void showBookDetails() {
         
+    }
+    
+    /*
+    Method untuk melakukan search dan mengambil keyword.
+    */
+    public void showSearch() {
+        List<Buku> hasil = guestAccount.cariBuku(home.getjTextField1().getText(), AllBook);
+        if (loginAs.equals("Admin")) {
+            homeAdmin.setVisible(false);
+        } else if (loginAs.equals("Mahasiswa")) {
+            homeMhs.setVisible(false);
+        } else {
+            home.setVisible(false);
+        }
+        TableBuku table = guestAccount.lihatDaftarBuku(hasil);
+        
+        listBuku.getjTable1().setModel(table);
+        listBuku.setVisible(true);
     }
     
     /*

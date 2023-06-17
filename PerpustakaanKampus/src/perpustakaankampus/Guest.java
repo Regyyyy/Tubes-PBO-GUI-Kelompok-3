@@ -49,12 +49,13 @@ public class Guest {
     Method untuk mendapatkan list rekomendasi buku.
     */
     public List<Buku> lihatRekomendasiBuku(List<Buku> allBook) {
+        List<Buku> tempListBuku = allBook;
         List<Buku> newListBuku = new ArrayList();
         
-        Collections.sort(allBook, new ComparatorFrekuensi());
+        Collections.sort(tempListBuku, new ComparatorFrekuensi());
         
         for (int i = 0; i < 5; i++) {
-            newListBuku.add(allBook.get(i));
+            newListBuku.add(tempListBuku.get(i));
         }
         
         return newListBuku;
