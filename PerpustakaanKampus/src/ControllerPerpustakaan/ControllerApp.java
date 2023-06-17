@@ -53,6 +53,7 @@ public class ControllerApp {
         detailBuku = new MenuDetailBuku(this);
         peminjamanBuku = new MenuPeminjamanBuku(this);
         pengembalianBuku = new MenuPengembalianBuku(this);
+        listBuku = new MenuListBuku(this);
         
         // Pembuatan semua class database.
         dbBuku = new DatabaseBuku();
@@ -63,8 +64,12 @@ public class ControllerApp {
         loginAs = "Guest";
         guestAccount = new Guest();
         
+        // Mendapatkan semua list buku.
+        AllBook = dbBuku.getAllBuku();
+        System.out.println(AllBook.size());
+        
         // Mendapatkan rekomendasi buku dan menampilkannya di semua main menu.
-        RecommendedBooks = guestAccount.lihatRekomendasiBuku();
+        RecommendedBooks = guestAccount.lihatRekomendasiBuku(AllBook);
 
         // Main menu guest.
         home.getBukuRec1().setText(RecommendedBooks.get(0).getJudulBuku());
@@ -213,10 +218,33 @@ public class ControllerApp {
     */
     public void showRiwayatPeminjamanMenu() {
         homeMhs.setVisible(false);
-        List<Peminjaman> listRiwayat = new ArrayList();
-        listRiwayat.add(new Peminjaman("a","b","c")); 
-//        riwayat.getjTable1().setModel(listRiwayat);
+        TablePeminjaman table = mhsAccount.lihatRiwayat();
+        riwayat.getjTable1().setModel(table);
         riwayat.setVisible(true);
+    }
+    
+    /*
+    Method untuk menampilkan laman buku.
+    */
+    public void showBookDetails() {
+        
+    }
+    
+    /*
+    Method untuk menampilkan laman semua buku.
+    */
+    public void showListBookMenu() {
+        if (loginAs.equals("Admin")) {
+            homeAdmin.setVisible(false);
+        } else if (loginAs.equals("Mahasiswa")) {
+            homeMhs.setVisible(false);
+        } else {
+            home.setVisible(false);
+        }
+        TableBuku table = guestAccount.lihatDaftarBuku(AllBook);
+        
+        listBuku.getjTable1().setModel(table);
+        listBuku.setVisible(true);
     }
     
     /*

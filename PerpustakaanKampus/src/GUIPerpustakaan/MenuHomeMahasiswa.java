@@ -472,6 +472,7 @@ public class MenuHomeMahasiswa extends javax.swing.JFrame {
 
     private void ListSemuaBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListSemuaBukuButtonActionPerformed
         // TODO add your handling code here:
+        ck.showListBookMenu();
     }//GEN-LAST:event_ListSemuaBukuButtonActionPerformed
 
     private void PeminjamanBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PeminjamanBukuButtonActionPerformed

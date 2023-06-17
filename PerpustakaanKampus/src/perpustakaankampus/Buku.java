@@ -20,15 +20,15 @@ public class Buku {
     
     public Buku() {};
     
-    public Buku(String kodeBuku, String judulBuku, String author, String abstrak, String kategoriBuku, String tahunTerbit, int stokBuku, int frekPeminjaman){
+    public Buku(String kodeBuku, String judulBuku, String author,  String kategoriBuku, String tahunTerbit, int stokBuku, int frekPeminjaman, String abstrak){
         this.kodeBuku = kodeBuku;
         this.judulBuku = judulBuku;
-        this.author = author;
-        this.abstrak = abstrak;
+        this.author = author;    
         this.kategoriBuku = kategoriBuku;
         this.tahunTerbit = tahunTerbit;
         this.stokBuku = stokBuku;
         this.frekPeminjaman = frekPeminjaman;
+        this.abstrak = abstrak;
     };
 
     public void tambahStokBuku(int jumlah) {
@@ -151,5 +151,8 @@ public class Buku {
         this.tahunTerbit = tahunTerbit;
     }
     
+    public void printAll(){
+        
+    }
     
 }

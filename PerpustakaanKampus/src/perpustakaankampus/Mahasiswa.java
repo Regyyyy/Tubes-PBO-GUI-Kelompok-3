@@ -4,6 +4,9 @@
  */
 package perpustakaankampus;
 
+import DatabasePerpustakaan.DatabaseRiwayatPeminjaman;
+import java.util.*;
+
 /**
  *
  * @author User
@@ -27,7 +30,13 @@ public class Mahasiswa extends Guest implements Logout {
     
     public void memperpanjangBuku() {}
     
-    public void lihatRiwayat() {}
+    public TablePeminjaman lihatRiwayat() {
+        List<Peminjaman> listPeminjaman;
+        DatabaseRiwayatPeminjaman peminjamanDao = new DatabaseRiwayatPeminjaman();
+        listPeminjaman = peminjamanDao.getAllPeminjaman();
+        TablePeminjaman table = new TablePeminjaman(listPeminjaman);
+        return table;
+    }
     
     @Override
     public void logoutAkun() {
