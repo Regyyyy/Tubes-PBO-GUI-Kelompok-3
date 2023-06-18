@@ -137,7 +137,21 @@ public class DatabaseBuku {
         }
     }
     
-    public void updateStokBuku(Buku buku, String perintah){
-        
+    public void updateStokBuku(Buku buku){
+        String sql;
+        sql = "UPDATE FROM buku WHERE StokBuku = ?";
+        PreparedStatement state;
+        if(buku.getStokBuku() <= 0){
+            try {
+                state = dbConnection.getConnection().prepareStatement(sql);
+                state.setInt(1, buku.getStokBuku());
+
+                state.executeUpdate();
+
+
+            } catch (SQLException e) {
+                Logger.getLogger(DatabaseBuku.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
     }
 }
