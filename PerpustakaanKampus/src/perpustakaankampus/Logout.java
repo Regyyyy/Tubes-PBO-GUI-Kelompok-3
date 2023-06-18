@@ -9,5 +9,5 @@ package perpustakaankampus;
  * @author User
  */
 public interface Logout {
-    public void logoutAkun();
+    public void logoutAkun(Guest guest, String loginAs);
 }

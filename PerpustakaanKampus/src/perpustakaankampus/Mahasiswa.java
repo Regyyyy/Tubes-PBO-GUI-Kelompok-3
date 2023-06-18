@@ -17,6 +17,8 @@ public class Mahasiswa extends Guest implements Logout {
     private String nama;
     private String nim;
     
+    public Mahasiswa() { };
+    
     public Mahasiswa(String username, String password, String nama, String nim) {
         this.username = username;
         this.password = password;
@@ -30,17 +32,26 @@ public class Mahasiswa extends Guest implements Logout {
     
     public void memperpanjangBuku() {}
     
-    public TablePeminjaman lihatRiwayat() {
-        List<Peminjaman> listPeminjaman;
+    public TablePeminjaman lihatRiwayat(String nim) {
+        List<Peminjaman> listAllPeminjaman;
+        List<Peminjaman> newListPeminjaman = new ArrayList();
         DatabaseRiwayatPeminjaman peminjamanDao = new DatabaseRiwayatPeminjaman();
-        listPeminjaman = peminjamanDao.getAllPeminjaman();
-        TablePeminjaman table = new TablePeminjaman(listPeminjaman);
+        listAllPeminjaman = peminjamanDao.getAllPeminjaman();
+        for (Peminjaman peminjaman : listAllPeminjaman) {
+            if (peminjaman.getNim().equals(nim)) {
+                newListPeminjaman.add(peminjaman);
+            }
+        }
+        TablePeminjaman table = new TablePeminjaman(newListPeminjaman);
         return table;
     }
     
     @Override
-    public void logoutAkun() {
-        
+    public void logoutAkun(Guest guest, String loginAs) {
+        if (guest instanceof Mahasiswa) {
+            guest = null;
+            loginAs = "Guest";
+        }
     }
 
     /**
@@ -69,6 +80,34 @@ public class Mahasiswa extends Guest implements Logout {
      */
     public String getNim() {
         return nim;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @param nama the nama to set
+     */
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    /**
+     * @param nim the nim to set
+     */
+    public void setNim(String nim) {
+        this.nim = nim;
     }
     
     

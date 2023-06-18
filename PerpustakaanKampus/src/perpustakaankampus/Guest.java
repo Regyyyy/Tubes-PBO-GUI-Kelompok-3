@@ -5,6 +5,7 @@
 package perpustakaankampus;
 
 import DatabasePerpustakaan.DatabaseBuku;
+import DatabasePerpustakaan.DatabaseMember;
 import Komparasi.ComparatorFrekuensi;
 import java.util.*;
 
@@ -21,11 +22,44 @@ public class Guest {
     }
     
     /*
-    Method untuk melakukan login
+    Method untuk melakukan login.
     */
-    public boolean login(String pilihan) {
-        //perlu akses ke class DatabaseMember
-        return true;
+    public boolean login(String loginAs, String username, String password, DatabaseMember memberDao, Mahasiswa mhsAccount, Admin adminAccount) throws Exception {
+        try {
+            if (loginAs == "Mahasiswa") {
+                adminAccount = null;
+                List<Mahasiswa> mhsTerdaftar = memberDao.getMahasiswa(username); // Ambil mahasiswa dari database sesuai username.
+                for (Mahasiswa mhs : mhsTerdaftar) {
+                    if (mhs.getUsername().equals(username)) {
+                        if (mhs.getPassword().equals(password)) {
+                            mhsAccount.setUsername(mhs.getUsername());
+                            mhsAccount.setPassword(mhs.getPassword());
+                            mhsAccount.setNama(mhs.getNama());
+                            mhsAccount.setNim(mhs.getNim());
+                            return true;
+                        }
+                    }
+                }
+            } else if (loginAs == "Admin") {
+                mhsAccount = null;
+                List<Admin> adminTerdaftar = memberDao.getAdmin(username); // Ambil admin dari database sesuai username.
+                for (Admin admin : adminTerdaftar) {
+                    if (admin.getUsername().equals(username)) {
+                        if (admin.getPassword().equals(password)) {
+                            adminAccount.setUsername(admin.getUsername());
+                            adminAccount.setUsername(admin.getPassword());
+                            adminAccount.setNama(admin.getNama());
+                            adminAccount.setKodePustakawan(admin.getKodePustakawan());
+                            return true;
+                        }
+                    }
+                }   
+            }
+            loginAs = "Guest";
+            return false;
+        } catch (Exception e) {
+            throw new Exception(e);
+        }
     }
     
     /*
@@ -41,8 +75,12 @@ public class Guest {
         return listHasil;
     }
     
+    /*
+    Method untuk mengambil buku yang ingin diperlihatkan.
+    */
     public void lihatDetailBuku() {
         //Perlu akses ke class Riwayat
+        
     }
     
     /*

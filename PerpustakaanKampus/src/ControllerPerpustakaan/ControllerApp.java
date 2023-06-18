@@ -139,46 +139,41 @@ public class ControllerApp {
         String passwordInput = login.getjPasswordField1().getText();
         login.getjRadioButton1().setActionCommand("Mahasiswa");
         login.getjRadioButton2().setActionCommand("Admin");
-                
+        loginAs = login.getButtonGroup1().getSelection().getActionCommand(); // Tidak mungkin null karena otomatis pilih mahasiswa.
+        mhsAccount = new Mahasiswa();
+        adminAccount = new Admin();
         try {
-            if (login.getButtonGroup1().getSelection().getActionCommand().equals("Mahasiswa")) {
-            
-                // Mahasiswa newMhs = DatabaseMember.cariMahasiswa();
-
-                // Demo.
-                if (usernameInput.equals("regy") && passwordInput.equals("1234")) {
-                    mhsAccount = new Mahasiswa("regy","1234","Regy Renanda Rahman","1302213117");
+            boolean hasilLogin = guestAccount.login(loginAs, 
+                usernameInput, passwordInput, dbMember, mhsAccount, adminAccount);
+            if (hasilLogin) {
+                if (loginAs == "Mahasiswa") {
                     home.setVisible(false);
                     homeMhs.getLoginAs().setText(mhsAccount.getNama() + " (Mahasiswa)");
                     login.setVisible(false);
                     homeMhs.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(null,"Username atau password salah");  
-                }
-                
-            } else if (login.getButtonGroup1().getSelection().getActionCommand().equals("Admin")) {
-                if (usernameInput.equals("herlin") && passwordInput.equals("5678")) {
-                    adminAccount = new Admin("herlin","5678","Herlin Priatna","p-52");
+                } else if (loginAs == "Admin") {
                     home.setVisible(false);
                     homeAdmin.getLoginAs().setText(adminAccount.getNama() + " (Admin)");
                     login.setVisible(false);
                     homeAdmin.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(null,"Username atau password salah");  
                 }
+            } else {
+                JOptionPane.showMessageDialog(null,"Username atau password salah");  
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Akun tidak terdaftar");
+            JOptionPane.showMessageDialog(null,"Input username dan password terlebih dahulu!");
         }
-        
     }
     
     /*
     Method untuk logout dari semua akun.
     */
     public void logoutAllAccount() {
-        mhsAccount = null;
-        adminAccount = null;
+        if (loginAs == "Mahasiswa") {
+            mhsAccount.logoutAkun(mhsAccount, loginAs);
+        } else if (loginAs == "Admin") {
+            adminAccount.logoutAkun(guestAccount, loginAs);
+        }
     }
     
     // Beberapa method navigasi.
@@ -205,6 +200,8 @@ public class ControllerApp {
     */
     public void showLoginMenu() {
         home.setVisible(false);
+        login.getjTextField1().setText("regyrenanda");
+        login.getjPasswordField1().setText("regy123");
         login.getjRadioButton1().setSelected(true);
         login.setVisible(true);
     }
@@ -214,7 +211,7 @@ public class ControllerApp {
     */
     public void showRiwayatPeminjamanMenu() {
         homeMhs.setVisible(false);
-        TablePeminjaman table = mhsAccount.lihatRiwayat();
+        TablePeminjaman table = mhsAccount.lihatRiwayat(mhsAccount.getNim());
         riwayat.getjTable1().setModel(table);
         riwayat.setVisible(true);
     }
@@ -222,15 +219,8 @@ public class ControllerApp {
     /*
     Method untuk menampilkan laman buku.
     */
-    public void showBookDetails() {
+    public void showBookDetails(Buku buku) {
         
-    }
-    
-    /*
-    Method untuk melakukan search dan mengambil keyword.
-    */
-    public void showSearch() {
-        List<Buku> hasil = guestAccount.cariBuku(home.getjTextField1().getText(), AllBook);
         if (loginAs.equals("Admin")) {
             homeAdmin.setVisible(false);
         } else if (loginAs.equals("Mahasiswa")) {
@@ -238,10 +228,44 @@ public class ControllerApp {
         } else {
             home.setVisible(false);
         }
-        TableBuku table = guestAccount.lihatDaftarBuku(hasil);
         
-        listBuku.getjTable1().setModel(table);
-        listBuku.setVisible(true);
+        detailBuku.getJudulBuku().setText("Judul : "+buku.getJudulBuku());
+        detailBuku.getjLabel1().setText("Kode buku : "+buku.getKodeBuku());
+        detailBuku.getjLabel2().setText("Author : "+buku.getAuthor());
+        detailBuku.getjLabel3().setText("Tahun terbit : "+buku.getTahunTerbit());
+        detailBuku.getjLabel4().setText("Kategori : "+buku.getKategoriBuku());
+        detailBuku.getjLabel5().setText("Stok buku : "+buku.getStokBuku());
+        detailBuku.getjLabel6().setText("Banyak peminjaman : "+buku.getFrekPeminjaman());
+        detailBuku.getjLabel7().setText("Abstract : \n"+buku.getAbstrak());
+        detailBuku.setVisible(true);
+    }
+    
+    
+    /*
+    Method untuk melakukan search dan mengambil keyword.
+    */
+    public void showSearch(javax.swing.JFrame page) {
+        if ((page instanceof MenuListBuku)) {
+            List<Buku> hasil = new ArrayList();
+            hasil = guestAccount.cariBuku(listBuku.getjTextField1().getText(), AllBook);
+            TableBuku table = guestAccount.lihatDaftarBuku(hasil);
+            listBuku.getjTable1().setModel(table);
+        } else { 
+            List<Buku> hasil = new ArrayList();
+            if (page instanceof MenuHomeAdmin) {
+                hasil = guestAccount.cariBuku(homeAdmin.getjTextField1().getText(), AllBook);
+                homeAdmin.setVisible(false);
+            } else if (page instanceof MenuHomeMahasiswa) {
+                hasil = guestAccount.cariBuku(homeMhs.getjTextField1().getText(), AllBook);
+                homeMhs.setVisible(false);
+            } else {
+                hasil = guestAccount.cariBuku(home.getjTextField1().getText(), AllBook);
+                home.setVisible(false);
+            }
+            TableBuku table = guestAccount.lihatDaftarBuku(hasil);
+            listBuku.getjTable1().setModel(table);
+            listBuku.setVisible(true);
+        }
     }
     
     /*
@@ -280,7 +304,6 @@ public class ControllerApp {
         detailBuku.getjLabel4().setText("Kategori : "+RecommendedBooks.get(idx).getKategoriBuku());
         detailBuku.getjLabel5().setText("Stok buku : "+RecommendedBooks.get(idx).getStokBuku());
         detailBuku.getjLabel6().setText("Banyak peminjaman : "+RecommendedBooks.get(idx).getFrekPeminjaman());
-        // Belum bisa warp text.
         detailBuku.getjLabel7().setText("Abstract : \n"+RecommendedBooks.get(idx).getAbstrak());
         detailBuku.setVisible(true);
     }

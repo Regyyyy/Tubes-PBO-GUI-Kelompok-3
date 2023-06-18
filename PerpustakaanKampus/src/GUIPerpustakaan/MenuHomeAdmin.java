@@ -369,6 +369,11 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
         );
 
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -460,7 +465,7 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
 
     private void ListSemuaBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListSemuaBukuButtonActionPerformed
         // TODO add your handling code here:
-        ck.showListBookMenu();
+        getCk().showListBookMenu();
     }//GEN-LAST:event_ListSemuaBukuButtonActionPerformed
 
     private void KonfirmasiPeminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KonfirmasiPeminjamanActionPerformed
@@ -471,14 +476,19 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         int input = JOptionPane.showConfirmDialog(null, "Apakah anda yakin untuk keluar dari akun ini?", "Logout akun", JOptionPane.YES_NO_OPTION);
         if (input == 0) {
-            ck.logoutAllAccount();
-            ck.showHomeMenu(this);
+            getCk().logoutAllAccount();
+            getCk().showHomeMenu(this);
         }
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void UpdateBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBukuButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UpdateBukuButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        getCk().showSearch(this);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -564,10 +574,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param ck the ck to set
+     */
+    public void setCk(ControllerApp ck) {
+        this.ck = ck;
+    }
+
+    /**
      * @return the AbstrakBukuRec1
      */
     public javax.swing.JLabel getAbstrakBukuRec1() {
         return AbstrakBukuRec1;
+    }
+
+    /**
+     * @param AbstrakBukuRec1 the AbstrakBukuRec1 to set
+     */
+    public void setAbstrakBukuRec1(javax.swing.JLabel AbstrakBukuRec1) {
+        this.AbstrakBukuRec1 = AbstrakBukuRec1;
     }
 
     /**
@@ -578,10 +602,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param AbstrakBukuRec2 the AbstrakBukuRec2 to set
+     */
+    public void setAbstrakBukuRec2(javax.swing.JLabel AbstrakBukuRec2) {
+        this.AbstrakBukuRec2 = AbstrakBukuRec2;
+    }
+
+    /**
      * @return the AbstrakBukuRec3
      */
     public javax.swing.JLabel getAbstrakBukuRec3() {
         return AbstrakBukuRec3;
+    }
+
+    /**
+     * @param AbstrakBukuRec3 the AbstrakBukuRec3 to set
+     */
+    public void setAbstrakBukuRec3(javax.swing.JLabel AbstrakBukuRec3) {
+        this.AbstrakBukuRec3 = AbstrakBukuRec3;
     }
 
     /**
@@ -592,10 +630,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param AbstrakBukuRec4 the AbstrakBukuRec4 to set
+     */
+    public void setAbstrakBukuRec4(javax.swing.JLabel AbstrakBukuRec4) {
+        this.AbstrakBukuRec4 = AbstrakBukuRec4;
+    }
+
+    /**
      * @return the AbstrakBukuRec5
      */
     public javax.swing.JLabel getAbstrakBukuRec5() {
         return AbstrakBukuRec5;
+    }
+
+    /**
+     * @param AbstrakBukuRec5 the AbstrakBukuRec5 to set
+     */
+    public void setAbstrakBukuRec5(javax.swing.JLabel AbstrakBukuRec5) {
+        this.AbstrakBukuRec5 = AbstrakBukuRec5;
     }
 
     /**
@@ -606,10 +658,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param BukuRec1 the BukuRec1 to set
+     */
+    public void setBukuRec1(javax.swing.JLabel BukuRec1) {
+        this.BukuRec1 = BukuRec1;
+    }
+
+    /**
      * @return the BukuRec2
      */
     public javax.swing.JLabel getBukuRec2() {
         return BukuRec2;
+    }
+
+    /**
+     * @param BukuRec2 the BukuRec2 to set
+     */
+    public void setBukuRec2(javax.swing.JLabel BukuRec2) {
+        this.BukuRec2 = BukuRec2;
     }
 
     /**
@@ -620,10 +686,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param BukuRec3 the BukuRec3 to set
+     */
+    public void setBukuRec3(javax.swing.JLabel BukuRec3) {
+        this.BukuRec3 = BukuRec3;
+    }
+
+    /**
      * @return the BukuRec4
      */
     public javax.swing.JLabel getBukuRec4() {
         return BukuRec4;
+    }
+
+    /**
+     * @param BukuRec4 the BukuRec4 to set
+     */
+    public void setBukuRec4(javax.swing.JLabel BukuRec4) {
+        this.BukuRec4 = BukuRec4;
     }
 
     /**
@@ -634,10 +714,38 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param BukuRec5 the BukuRec5 to set
+     */
+    public void setBukuRec5(javax.swing.JLabel BukuRec5) {
+        this.BukuRec5 = BukuRec5;
+    }
+
+    /**
      * @return the Header
      */
     public javax.swing.JLabel getHeader() {
         return Header;
+    }
+
+    /**
+     * @param Header the Header to set
+     */
+    public void setHeader(javax.swing.JLabel Header) {
+        this.Header = Header;
+    }
+
+    /**
+     * @return the KonfirmasiPeminjaman
+     */
+    public javax.swing.JButton getKonfirmasiPeminjaman() {
+        return KonfirmasiPeminjaman;
+    }
+
+    /**
+     * @param KonfirmasiPeminjaman the KonfirmasiPeminjaman to set
+     */
+    public void setKonfirmasiPeminjaman(javax.swing.JButton KonfirmasiPeminjaman) {
+        this.KonfirmasiPeminjaman = KonfirmasiPeminjaman;
     }
 
     /**
@@ -648,24 +756,10 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
-     * @return the ListSemuaBukuButton1
+     * @param ListSemuaBukuButton the ListSemuaBukuButton to set
      */
-    public javax.swing.JButton getListSemuaBukuButton1() {
-        return KonfirmasiPeminjaman;
-    }
-
-    /**
-     * @return the ListSemuaBukuButton2
-     */
-    public javax.swing.JButton getListSemuaBukuButton2() {
-        return LogoutButton;
-    }
-
-    /**
-     * @return the ListSemuaBukuButton3
-     */
-    public javax.swing.JButton getListSemuaBukuButton3() {
-        return UpdateBukuButton;
+    public void setListSemuaBukuButton(javax.swing.JButton ListSemuaBukuButton) {
+        this.ListSemuaBukuButton = ListSemuaBukuButton;
     }
 
     /**
@@ -676,10 +770,38 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param LoginAs the LoginAs to set
+     */
+    public void setLoginAs(javax.swing.JLabel LoginAs) {
+        this.LoginAs = LoginAs;
+    }
+
+    /**
+     * @return the LogoutButton
+     */
+    public javax.swing.JButton getLogoutButton() {
+        return LogoutButton;
+    }
+
+    /**
+     * @param LogoutButton the LogoutButton to set
+     */
+    public void setLogoutButton(javax.swing.JButton LogoutButton) {
+        this.LogoutButton = LogoutButton;
+    }
+
+    /**
      * @return the RekomendasiLabel
      */
     public javax.swing.JLabel getRekomendasiLabel() {
         return RekomendasiLabel;
+    }
+
+    /**
+     * @param RekomendasiLabel the RekomendasiLabel to set
+     */
+    public void setRekomendasiLabel(javax.swing.JLabel RekomendasiLabel) {
+        this.RekomendasiLabel = RekomendasiLabel;
     }
 
     /**
@@ -690,10 +812,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param TahunTerbitBukuRec1 the TahunTerbitBukuRec1 to set
+     */
+    public void setTahunTerbitBukuRec1(javax.swing.JLabel TahunTerbitBukuRec1) {
+        this.TahunTerbitBukuRec1 = TahunTerbitBukuRec1;
+    }
+
+    /**
      * @return the TahunTerbitBukuRec2
      */
     public javax.swing.JLabel getTahunTerbitBukuRec2() {
         return TahunTerbitBukuRec2;
+    }
+
+    /**
+     * @param TahunTerbitBukuRec2 the TahunTerbitBukuRec2 to set
+     */
+    public void setTahunTerbitBukuRec2(javax.swing.JLabel TahunTerbitBukuRec2) {
+        this.TahunTerbitBukuRec2 = TahunTerbitBukuRec2;
     }
 
     /**
@@ -704,10 +840,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param TahunTerbitBukuRec3 the TahunTerbitBukuRec3 to set
+     */
+    public void setTahunTerbitBukuRec3(javax.swing.JLabel TahunTerbitBukuRec3) {
+        this.TahunTerbitBukuRec3 = TahunTerbitBukuRec3;
+    }
+
+    /**
      * @return the TahunTerbitBukuRec4
      */
     public javax.swing.JLabel getTahunTerbitBukuRec4() {
         return TahunTerbitBukuRec4;
+    }
+
+    /**
+     * @param TahunTerbitBukuRec4 the TahunTerbitBukuRec4 to set
+     */
+    public void setTahunTerbitBukuRec4(javax.swing.JLabel TahunTerbitBukuRec4) {
+        this.TahunTerbitBukuRec4 = TahunTerbitBukuRec4;
     }
 
     /**
@@ -718,10 +868,38 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param TahunTerbitBukuRec5 the TahunTerbitBukuRec5 to set
+     */
+    public void setTahunTerbitBukuRec5(javax.swing.JLabel TahunTerbitBukuRec5) {
+        this.TahunTerbitBukuRec5 = TahunTerbitBukuRec5;
+    }
+
+    /**
+     * @return the UpdateBukuButton
+     */
+    public javax.swing.JButton getUpdateBukuButton() {
+        return UpdateBukuButton;
+    }
+
+    /**
+     * @param UpdateBukuButton the UpdateBukuButton to set
+     */
+    public void setUpdateBukuButton(javax.swing.JButton UpdateBukuButton) {
+        this.UpdateBukuButton = UpdateBukuButton;
+    }
+
+    /**
      * @return the ViewBukuRec1
      */
     public javax.swing.JButton getViewBukuRec1() {
         return ViewBukuRec1;
+    }
+
+    /**
+     * @param ViewBukuRec1 the ViewBukuRec1 to set
+     */
+    public void setViewBukuRec1(javax.swing.JButton ViewBukuRec1) {
+        this.ViewBukuRec1 = ViewBukuRec1;
     }
 
     /**
@@ -732,10 +910,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param ViewBukuRec2 the ViewBukuRec2 to set
+     */
+    public void setViewBukuRec2(javax.swing.JButton ViewBukuRec2) {
+        this.ViewBukuRec2 = ViewBukuRec2;
+    }
+
+    /**
      * @return the ViewBukuRec3
      */
     public javax.swing.JButton getViewBukuRec3() {
         return ViewBukuRec3;
+    }
+
+    /**
+     * @param ViewBukuRec3 the ViewBukuRec3 to set
+     */
+    public void setViewBukuRec3(javax.swing.JButton ViewBukuRec3) {
+        this.ViewBukuRec3 = ViewBukuRec3;
     }
 
     /**
@@ -746,10 +938,38 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param ViewBukuRec4 the ViewBukuRec4 to set
+     */
+    public void setViewBukuRec4(javax.swing.JButton ViewBukuRec4) {
+        this.ViewBukuRec4 = ViewBukuRec4;
+    }
+
+    /**
      * @return the ViewBukuRec5
      */
     public javax.swing.JButton getViewBukuRec5() {
         return ViewBukuRec5;
+    }
+
+    /**
+     * @param ViewBukuRec5 the ViewBukuRec5 to set
+     */
+    public void setViewBukuRec5(javax.swing.JButton ViewBukuRec5) {
+        this.ViewBukuRec5 = ViewBukuRec5;
+    }
+
+    /**
+     * @return the jButton1
+     */
+    public javax.swing.JButton getjButton1() {
+        return jButton1;
+    }
+
+    /**
+     * @param jButton1 the jButton1 to set
+     */
+    public void setjButton1(javax.swing.JButton jButton1) {
+        this.jButton1 = jButton1;
     }
 
     /**
@@ -760,10 +980,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param jPanel1 the jPanel1 to set
+     */
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
      * @return the jPanel2
      */
     public javax.swing.JPanel getjPanel2() {
         return jPanel2;
+    }
+
+    /**
+     * @param jPanel2 the jPanel2 to set
+     */
+    public void setjPanel2(javax.swing.JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
     }
 
     /**
@@ -774,10 +1008,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param jPanel3 the jPanel3 to set
+     */
+    public void setjPanel3(javax.swing.JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    /**
      * @return the jPanel4
      */
     public javax.swing.JPanel getjPanel4() {
         return jPanel4;
+    }
+
+    /**
+     * @param jPanel4 the jPanel4 to set
+     */
+    public void setjPanel4(javax.swing.JPanel jPanel4) {
+        this.jPanel4 = jPanel4;
     }
 
     /**
@@ -788,10 +1036,24 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param jPanel5 the jPanel5 to set
+     */
+    public void setjPanel5(javax.swing.JPanel jPanel5) {
+        this.jPanel5 = jPanel5;
+    }
+
+    /**
      * @return the jPanel6
      */
     public javax.swing.JPanel getjPanel6() {
         return jPanel6;
+    }
+
+    /**
+     * @param jPanel6 the jPanel6 to set
+     */
+    public void setjPanel6(javax.swing.JPanel jPanel6) {
+        this.jPanel6 = jPanel6;
     }
 
     /**
@@ -802,11 +1064,54 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
     }
 
     /**
+     * @param jPanel7 the jPanel7 to set
+     */
+    public void setjPanel7(javax.swing.JPanel jPanel7) {
+        this.jPanel7 = jPanel7;
+    }
+
+    /**
      * @return the jPanel8
      */
     public javax.swing.JPanel getjPanel8() {
         return jPanel8;
     }
 
+    /**
+     * @param jPanel8 the jPanel8 to set
+     */
+    public void setjPanel8(javax.swing.JPanel jPanel8) {
+        this.jPanel8 = jPanel8;
+    }
+
+    /**
+     * @return the jPanel9
+     */
+    public javax.swing.JPanel getjPanel9() {
+        return jPanel9;
+    }
+
+    /**
+     * @param jPanel9 the jPanel9 to set
+     */
+    public void setjPanel9(javax.swing.JPanel jPanel9) {
+        this.jPanel9 = jPanel9;
+    }
+
+    /**
+     * @return the jTextField1
+     */
+    public javax.swing.JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    /**
+     * @param jTextField1 the jTextField1 to set
+     */
+    public void setjTextField1(javax.swing.JTextField jTextField1) {
+        this.jTextField1 = jTextField1;
+    }
+
+    
     
 }

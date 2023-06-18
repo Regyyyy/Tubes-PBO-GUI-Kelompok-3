@@ -14,6 +14,8 @@ public class Admin extends Guest implements Logout {
     private String nama;
     private String kodePustakawan;
     
+    public Admin() {};
+    
     public Admin(String username, String password, String nama, String kodePustakawan) {
         this.username = username;
         this.password = password;
@@ -34,8 +36,11 @@ public class Admin extends Guest implements Logout {
     public void membuatLaporan() {}
     
     @Override
-    public void logoutAkun() {
-        
+    public void logoutAkun(Guest guest, String loginAs) {
+        if (guest instanceof Admin) {
+            guest = null;
+            loginAs = "Guest";
+        }
     }
 
     /**
@@ -64,6 +69,34 @@ public class Admin extends Guest implements Logout {
      */
     public String getKodePustakawan() {
         return kodePustakawan;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @param nama the nama to set
+     */
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    /**
+     * @param kodePustakawan the kodePustakawan to set
+     */
+    public void setKodePustakawan(String kodePustakawan) {
+        this.kodePustakawan = kodePustakawan;
     }
     
     

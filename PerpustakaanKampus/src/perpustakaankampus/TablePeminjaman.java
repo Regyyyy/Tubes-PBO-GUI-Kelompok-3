@@ -7,6 +7,7 @@ public class TablePeminjaman extends AbstractTableModel {
     
     List <Peminjaman> listPeminjaman;
     
+    public TablePeminjaman() {}
     public TablePeminjaman(List<Peminjaman> listPeminjaman) { this.listPeminjaman = listPeminjaman; }
     
     public Peminjaman getRow(int row) { return listPeminjaman.get(row); } 
@@ -14,7 +15,7 @@ public class TablePeminjaman extends AbstractTableModel {
     @Override
     public int getRowCount() { return listPeminjaman.size(); }
     @Override
-    public int getColumnCount() { return listPeminjaman.getClass().getDeclaredFields().length; }
+    public int getColumnCount() { return 8; }
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
@@ -33,11 +34,12 @@ public class TablePeminjaman extends AbstractTableModel {
     public String getColumnName(int column) {
         switch (column) {
             case 0: return "NIM";
-            case 1: return "JudulBuku";
-            case 2: return "TanggalPinjam";
-            case 3: return "BatasPinjam";
-            case 4: return "Disetujui";
-            case 5: return "Selesai";
+            case 1: return "KodeBuku";
+            case 2: return "JudulBuku";
+            case 3: return "TanggalPinjam";
+            case 4: return "BatasPinjam";
+            case 5: return "Disetujui";
+            case 6: return "Selesai";
             case 7: return "Denda";
             default: return null;
         }
