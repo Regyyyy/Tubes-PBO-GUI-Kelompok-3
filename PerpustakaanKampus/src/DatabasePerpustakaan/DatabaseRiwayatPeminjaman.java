@@ -4,6 +4,7 @@
  */
 package DatabasePerpustakaan;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,12 +31,12 @@ public class DatabaseRiwayatPeminjaman {
             try (ResultSet result = statement.executeQuery(sql)){
                 while (result.next()){
                     Peminjaman peminjaman = new Peminjaman();
-                    peminjaman.setIDPeminjaman(result.getString("IDPeminjaman"));
-                    peminjaman.setNIM(result.getString("NIM"));
+                    peminjaman.setIdPeminjaman(result.getString("IDPeminjaman"));
+                    peminjaman.setNim(result.getString("NIM"));
                     peminjaman.setKodeBuku(result.getString("KodeBuku"));
                     peminjaman.setJudulBuku(result.getString("JudulBuku"));
-                    peminjaman.setTanggalPinjam(result.getString("TanggalPinjam"));
-                    peminjaman.setBatasPinjam(result.getString("BatasPinjam"));
+                    peminjaman.setTanggalPinjam(result.getDate("TanggalPinjam"));
+                    peminjaman.setBatasPinjam(result.getDate("BatasPinjam"));
                     peminjaman.setDisetujui(result.getBoolean("Disetujui"));
                     peminjaman.setSelesai(result.getBoolean("Selesai"));
                     peminjaman.setDenda(result.getInt("Denda"));
@@ -50,49 +51,53 @@ public class DatabaseRiwayatPeminjaman {
             return null;
         }
     }
-  /*  
-    public List<Buku> getBuku(String kodeBuku){
-        listBuku = new ArrayList<>();
+    
+    public List<Peminjaman> getPeminjaman(String NIM){
+        listPeminjaman = new ArrayList<>();
         Statement  statement;
-        String sql = "SELECT * FROM admin WHERE KodeBuku = " + kodeBuku;
+        String sql = "SELECT * FROM riwayat_peminjaman WHERE NIM = " + NIM;
         try {
             statement = dbConnection.getConnection().createStatement();
             
             try (ResultSet result = statement.executeQuery(sql)){
                 while (result.next()){
-                    Buku buku = new Buku();
-                    buku.setKodeBuku(result.getString("KodeBuku"));
-                    buku.setJudulBuku(result.getString("JudulBuku"));
-                    buku.setAuthor(result.getString("Penulis"));
-                    buku.setKategoriBuku(result.getString("KategoriBuku"));
-                    buku.setTahunTerbit(result.getString("TahunTerbit"));
-                    buku.setStokBuku(result.getInt("StokBuku"));
-                    buku.setFrekPeminjaman(result.getInt("frekuensi"));
-                    buku.setAbstrak(result.getString("Abstrak"));
-                    listBuku.add(buku);
+                    Peminjaman peminjaman = new Peminjaman();
+                    peminjaman.setIdPeminjaman(result.getString("IDPeminjaman"));
+                    peminjaman.setNim(result.getString("NIM"));
+                    peminjaman.setKodeBuku(result.getString("KodeBuku"));
+                    peminjaman.setJudulBuku(result.getString("JudulBuku"));
+                    peminjaman.setTanggalPinjam(result.getDate("TanggalPinjam"));
+                    peminjaman.setBatasPinjam(result.getDate("BatasPinjam"));
+                    peminjaman.setDisetujui(result.getBoolean("Disetujui"));
+                    peminjaman.setSelesai(result.getBoolean("Selesai"));
+                    peminjaman.setDenda(result.getInt("Denda"));
+                    peminjaman.setKondisiBuku(result.getString("KondisiBuku"));
+                    listPeminjaman.add(peminjaman);
              }
                 statement.close();
             }
-            return listBuku;
+            return listPeminjaman;
         } catch (SQLException e) {
-            Logger.getLogger(DatabaseBuku.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(DatabaseRiwayatPeminjaman.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
     }
     
-    public void insertAdmin(Buku buku){
+    public void updatePeminjaman(Peminjaman peminjaman){
         String sql;
-        sql = "INSERT INTO buku (KodeBuku, JudulBuku, Penulis, KategoriBuku, TahunTerbit, StokBuku, frekuensi, Abstrak) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        sql = "UPDATE buku SET IDPeminjaman = ?, NIM = ?, KodeBuku = ?, JudulBuku = ?, TanggalPinjam = ?, BatasPinjam = ?, Disetujui = ?, Selesai = ?, Denda = ?, KondisiBuku = ?";
         try {
             PreparedStatement state = dbConnection.getConnection().prepareStatement(sql);
-            state.setString(1, buku.getKodeBuku());
-            state.setString(2, buku.getJudulBuku());
-            state.setString(3, buku.getAuthor());
-            state.setString(4,  buku.getKategoriBuku());
-            state.setString(5,  buku.getTahunTerbit());
-            state.setInt(6,  buku.getStokBuku());
-            state.setInt(7,  buku.getFrekPeminjaman());
-            state.setString(8, buku.getAbstrak());
+            state.setString(1, peminjaman.getIdPeminjaman());
+            state.setString(2, peminjaman.getNim());
+            state.setString(3, peminjaman.getKodeBuku());
+            state.setString(4,  peminjaman.getJudulBuku());
+            state.setDate(5, (Date) peminjaman.getTanggalPinjam());
+            state.setDate(6, (Date) peminjaman.getBatasPinjam());
+            state.setBoolean(7,  peminjaman.isDisetujui());
+            state.setBoolean(8, peminjaman.isSelesai());
+            state.setInt(9, peminjaman.getDenda());
+            state.setString(10, peminjaman.getKondisiBuku());
             
             state.executeUpdate();
             
@@ -102,19 +107,20 @@ public class DatabaseRiwayatPeminjaman {
         }
     }
     
-    public void updateBuku(Buku buku){
-        String sql;
-        sql = "UPDATE buku SET KodeBuku = ?, JudulBuku = ?, Penulis = ?, KategoriBuku = ?, TahunTerbit = ?, StokBuku = ?, frekuensi = ?, Abstrak = ?";
+    public void addPeminjaman(Peminjaman peminjaman){
+        String sql = "INSERT INTO buku (IDPeminjaman, NIM, KodeBuku, JudulBuku, TanggalPinjam, BatasPinjam, Disetujui, Selesai, Denda, KondisiBuku) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement state = dbConnection.getConnection().prepareStatement(sql);
-            state.setString(1, buku.getKodeBuku());
-            state.setString(2, buku.getJudulBuku());
-            state.setString(3, buku.getAuthor());
-            state.setString(4,  buku.getKategoriBuku());
-            state.setString(5,  buku.getTahunTerbit());
-            state.setInt(6,  buku.getStokBuku());
-            state.setInt(7,  buku.getFrekPeminjaman());
-            state.setString(8, buku.getAbstrak());
+            state.setString(1, peminjaman.getIdPeminjaman());
+            state.setString(2, peminjaman.getNim());
+            state.setString(3, peminjaman.getKodeBuku());
+            state.setString(4,  peminjaman.getJudulBuku());
+            state.setDate(5, (Date) peminjaman.getTanggalPinjam());
+            state.setDate(6, (Date) peminjaman.getBatasPinjam());
+            state.setBoolean(7,  peminjaman.isDisetujui());
+            state.setBoolean(8, peminjaman.isSelesai());
+            state.setInt(9, peminjaman.getDenda());
+            state.setString(10, peminjaman.getKondisiBuku());
             
             state.executeUpdate();
             
@@ -123,21 +129,5 @@ public class DatabaseRiwayatPeminjaman {
             Logger.getLogger(DatabaseBuku.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-    
-    public void deleteBuku(Buku buku){
-        String sql;
-        sql = "DELETE FROM buku WHERE KodeBuku = ?";
-        PreparedStatement state;
-         try {
-            state = dbConnection.getConnection().prepareStatement(sql);
-            state.setString(1, buku.getKodeBuku());
-            
-            state.executeUpdate();
-            
-            
-        } catch (SQLException e) {
-            Logger.getLogger(DatabaseBuku.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-*/
+  
 }

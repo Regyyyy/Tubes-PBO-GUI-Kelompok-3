@@ -51,7 +51,7 @@ public class DatabaseBuku {
     public List<Buku> getBuku(String kodeBuku){
         listBuku = new ArrayList<>();
         Statement  statement;
-        String sql = "SELECT * FROM admin WHERE KodeBuku = " + kodeBuku;
+        String sql = "SELECT * FROM buku WHERE KodeBuku = " + kodeBuku;
         try {
             statement = dbConnection.getConnection().createStatement();
             
@@ -77,7 +77,7 @@ public class DatabaseBuku {
         }
     }
     
-    public void insertAdmin(Buku buku){
+    public void insertBuku(Buku buku){
         String sql;
         sql = "INSERT INTO buku (KodeBuku, JudulBuku, Penulis, KategoriBuku, TahunTerbit, StokBuku, frekuensi, Abstrak) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
@@ -135,5 +135,9 @@ public class DatabaseBuku {
         } catch (SQLException e) {
             Logger.getLogger(DatabaseBuku.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
+    
+    public void updateStokBuku(Buku buku, String perintah){
+        
     }
 }

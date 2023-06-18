@@ -14,6 +14,10 @@ public class Mahasiswa extends Guest implements Logout {
     private String nama;
     private String nim;
     
+    public Mahasiswa (){
+        
+    }
+    
     public Mahasiswa(String username, String password, String nama, String nim) {
         this.username = username;
         this.password = password;
@@ -60,6 +64,34 @@ public class Mahasiswa extends Guest implements Logout {
      */
     public String getNim() {
         return nim;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @param nama the nama to set
+     */
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    /**
+     * @param nim the nim to set
+     */
+    public void setNim(String nim) {
+        this.nim = nim;
     }
     
     

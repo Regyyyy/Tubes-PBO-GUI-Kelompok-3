@@ -4,26 +4,32 @@
  */
 package perpustakaankampus;
 
+import java.util.Date;
+
 /**
  *
  * @author User
  */
 public class Peminjaman {
-    private String NIM;
-    private String IDPeminjaman, KodeBuku, JudulBuku;
-    private String tanggalPinjam, batasPinjam;
+    private String idPeminjaman;
+    private String nim;
+    private String kodeBuku;
+    private String judulBuku;
+    private Date tanggalPinjam;
+    private Date batasPinjam;
     private boolean disetujui;
     private boolean selesai;
     private int denda;
     private String kondisiBuku;
     
-    public Peminjaman(){};
-    public Peminjaman(String KodeBuku, String IDPeminjaman, String judul, String batas, String tanggalPinjam) {
-        this.IDPeminjaman = IDPeminjaman;
-        this.KodeBuku = KodeBuku;
-        this.JudulBuku = judul;
+    public Peminjaman() {}
+    
+    public Peminjaman(String idPeminjaman, String nim, String kodeBuku, String judulBuku, Date tanggalPinjam) {
+        this.idPeminjaman = idPeminjaman;
+        this.nim = nim;
+        this.kodeBuku = kodeBuku;
+        this.judulBuku = judulBuku;
         this.tanggalPinjam = tanggalPinjam;
-        this.batasPinjam = batas;
         this.disetujui = false;
         this.selesai = false;
         this.denda = 0;
@@ -31,86 +37,86 @@ public class Peminjaman {
     }
 
     /**
-     * @return the NIM
+     * @return the idPeminjaman
      */
-    public String getNIM() {
-        return NIM;
+    public String getIdPeminjaman() {
+        return idPeminjaman;
     }
 
     /**
-     * @param NIM the NIM to set
+     * @param idPeminjaman the idPeminjaman to set
      */
-    public void setNIM(String NIM) {
-        this.NIM = NIM;
+    public void setIdPeminjaman(String idPeminjaman) {
+        this.idPeminjaman = idPeminjaman;
     }
 
     /**
-     * @return the IDPeminjaman
+     * @return the nim
      */
-    public String getIDPeminjaman() {
-        return IDPeminjaman;
+    public String getNim() {
+        return nim;
     }
 
     /**
-     * @param IDPeminjaman the IDPeminjaman to set
+     * @param nim the nim to set
      */
-    public void setIDPeminjaman(String IDPeminjaman) {
-        this.IDPeminjaman = IDPeminjaman;
+    public void setNim(String nim) {
+        this.nim = nim;
     }
 
     /**
-     * @return the KodeBuku
+     * @return the kodeBuku
      */
     public String getKodeBuku() {
-        return KodeBuku;
+        return kodeBuku;
     }
 
     /**
-     * @param KodeBuku the KodeBuku to set
+     * @param kodeBuku the kodeBuku to set
      */
-    public void setKodeBuku(String KodeBuku) {
-        this.KodeBuku = KodeBuku;
+    public void setKodeBuku(String kodeBuku) {
+        this.kodeBuku = kodeBuku;
     }
 
     /**
-     * @return the JudulBuku
+     * @return the judulBuku
      */
     public String getJudulBuku() {
-        return JudulBuku;
+        return judulBuku;
     }
 
     /**
-     * @param JudulBuku the JudulBuku to set
+     * @param judulBuku the judulBuku to set
      */
-    public void setJudulBuku(String JudulBuku) {
-        this.JudulBuku = JudulBuku;
+    public void setJudulBuku(String judulBuku) {
+        this.judulBuku = judulBuku;
     }
 
     /**
      * @return the tanggalPinjam
      */
-    public String getTanggalPinjam() {
+    public Date getTanggalPinjam() {
         return tanggalPinjam;
     }
 
     /**
      * @param tanggalPinjam the tanggalPinjam to set
      */
-    public void setTanggalPinjam(String tanggalPinjam) {
+    public void setTanggalPinjam(Date tanggalPinjam) {
         this.tanggalPinjam = tanggalPinjam;
     }
 
     /**
      * @return the batasPinjam
      */
-    public String getBatasPinjam() {
+    public Date getBatasPinjam() {
         return batasPinjam;
     }
 
     /**
      * @param batasPinjam the batasPinjam to set
      */
-    public void setBatasPinjam(String batasPinjam) {
+    public void setBatasPinjam(Date batasPinjam) {
         this.batasPinjam = batasPinjam;
     }
 
@@ -170,6 +176,4 @@ public class Peminjaman {
         this.kondisiBuku = kondisiBuku;
     }
 
-
-    
 }
