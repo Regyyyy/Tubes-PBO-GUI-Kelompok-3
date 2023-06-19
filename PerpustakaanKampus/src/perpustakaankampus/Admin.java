@@ -30,7 +30,6 @@ public class Admin extends Guest implements Logout {
         DatabaseBuku bukuDao = new DatabaseBuku();
         bukuDao.insertBuku(newBook);
         JOptionPane.showMessageDialog(null,"Berhasil menambah buku.");        
-
     }
     
     public void menghapusBuku(Buku newBook) {

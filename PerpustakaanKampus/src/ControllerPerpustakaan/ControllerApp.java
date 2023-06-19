@@ -168,11 +168,17 @@ public class ControllerApp {
     Method untuk logout dari semua akun.
     */
     public void logoutAllAccount() {
+//        if (loginAs == "Mahasiswa") {
+//            mhsAccount.logoutAkun(mhsAccount, loginAs);
+//        } else if (loginAs == "Admin") {
+//            adminAccount.logoutAkun(guestAccount, loginAs);
+//        }
         if (loginAs == "Mahasiswa") {
-            mhsAccount.logoutAkun(mhsAccount, loginAs);
+            mhsAccount = null;
         } else if (loginAs == "Admin") {
-            adminAccount.logoutAkun(guestAccount, loginAs);
+            adminAccount = null;
         }
+        loginAs = "Guest";
     }
     
     /*
