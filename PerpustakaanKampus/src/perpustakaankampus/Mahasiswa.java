@@ -39,7 +39,7 @@ public class Mahasiswa extends Guest implements Logout {
         List<Buku> newBuku = bukuDao.getBuku(kodeBuku);
         Buku buku = newBuku.get(0);
         Peminjaman peminjamanBaru = new Peminjaman();
-        peminjamanBaru.setIdPeminjaman(Integer.toString(allPeminjaman.size()+1));
+        peminjamanBaru.setIdPeminjaman(Integer.toString((int) Math.random()));
         peminjamanBaru.setNim(nim);
         peminjamanBaru.setKodeBuku(buku.getKodeBuku());
         peminjamanBaru.setJudulBuku(buku.getJudulBuku());
@@ -55,7 +55,17 @@ public class Mahasiswa extends Guest implements Logout {
         return peminjamanBaru;
     }
     
-    public void mengembalikanBuku() {}
+    public void mengembalikanBuku(String idPeminjaman) {
+        DatabaseRiwayatPeminjaman peminjamanDao = new DatabaseRiwayatPeminjaman();
+        List<Peminjaman> allPeminjaman = peminjamanDao.getAllPeminjaman();
+            for (Peminjaman peminjaman : allPeminjaman) {
+                if (peminjaman.getIdPeminjaman().equals(idPeminjaman)) {
+                    peminjaman.setSelesai(true);
+                    peminjamanDao.updatePeminjaman(peminjaman);
+                }
+            }
+            JOptionPane.showMessageDialog(null,"Telah dilakukan konfirmasi peminjaman.");      
+    }
     
     public void memperpanjangBuku(String idPeminjaman, String nim) {
         DatabaseRiwayatPeminjaman peminjamanDao = new DatabaseRiwayatPeminjaman();

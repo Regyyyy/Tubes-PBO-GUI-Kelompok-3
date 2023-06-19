@@ -252,17 +252,9 @@ public class ControllerApp {
         } else {
             int row = pengembalianBuku.getjTable1().getSelectedRow();
             int column = 0; // Mengambil kode buku pada tabel.
-            String idPeminjaman = pengembalianBuku.getjTable1().getModel().getValueAt(row, column).toString();
-            List<Peminjaman> allPeminjaman = dbPeminjaman.getAllPeminjaman();
-            for (Peminjaman peminjaman : allPeminjaman) {
-                if (peminjaman.getIdPeminjaman().equals(idPeminjaman)) {
-                    peminjaman.setSelesai(true);
-                    dbPeminjaman.updatePeminjaman(peminjaman);
-                    pengembalianBuku.setVisible(false);
-                    showMenuKonfirmasi();
-                }
-            }
-            JOptionPane.showMessageDialog(null,"Telah dilakukan konfirmasi peminjaman.");        
+            mhsAccount.mengembalikanBuku(pengembalianBuku.getjTable1().getModel().getValueAt(row, column).toString());
+            pengembalianBuku.setVisible(false);
+            showPengembalianBukuMenu();  
         }
     }
     
@@ -324,10 +316,6 @@ public class ControllerApp {
         }
     }
     
-    /*
-    Method untuk menampilkan peminjaman yang sudah diberi true untuk disetujui.
-    */
-//    public void 
     
     
     // Beberapa method navigasi.

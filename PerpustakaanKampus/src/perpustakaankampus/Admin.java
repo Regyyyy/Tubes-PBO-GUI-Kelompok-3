@@ -29,13 +29,21 @@ public class Admin extends Guest implements Logout {
     public void menambahBuku(Buku newBook) {
         DatabaseBuku bukuDao = new DatabaseBuku();
         bukuDao.insertBuku(newBook);
-                    JOptionPane.showMessageDialog(null,"Berhasil menambah buku.");        
+        JOptionPane.showMessageDialog(null,"Berhasil menambah buku.");        
 
     }
     
-    public void menghapusBuku() {}
+    public void menghapusBuku(Buku newBook) {
+        DatabaseBuku bukuDao = new DatabaseBuku();
+        bukuDao.deleteBuku(newBook);
+        JOptionPane.showMessageDialog(null,"Berhasil menghapus buku."); 
+    }
     
-    public void updateBuku() {}
+    public void updateBuku(Buku newBook) {
+        DatabaseBuku bukuDao = new DatabaseBuku();
+        bukuDao.updateBuku(newBook);
+        JOptionPane.showMessageDialog(null,"Berhasil mengupdate data buku."); 
+    }
     
     public void konfirmasiPeminjaman() {}
     
