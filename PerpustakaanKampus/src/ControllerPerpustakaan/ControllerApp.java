@@ -144,7 +144,7 @@ public class ControllerApp {
         adminAccount = new Admin();
         try {
             boolean hasilLogin = guestAccount.login(loginAs, 
-                usernameInput, passwordInput, dbMember, mhsAccount, adminAccount);
+                usernameInput, passwordInput, mhsAccount, adminAccount);
             if (hasilLogin) {
                 if (loginAs == "Mahasiswa") {
                     home.setVisible(false);
@@ -183,10 +183,10 @@ public class ControllerApp {
     ke Home Menu.
     */
     public void showHomeMenu(javax.swing.JFrame page) {
-        if (page instanceof MenuMahasiswa) {
+        if (loginAs.equals("Mahasiswa")) {
             page.setVisible(false);
             homeMhs.setVisible(true); 
-        } else if (page instanceof MenuAdmin) {
+        } else if (loginAs.equals("Admin")) {
             page.setVisible(false);
             homeAdmin.setVisible(true); 
         } else {
@@ -219,25 +219,26 @@ public class ControllerApp {
     /*
     Method untuk menampilkan laman buku.
     */
-    public void showBookDetails(Buku buku) {
-        
-        if (loginAs.equals("Admin")) {
-            homeAdmin.setVisible(false);
-        } else if (loginAs.equals("Mahasiswa")) {
-            homeMhs.setVisible(false);
-        } else {
-            home.setVisible(false);
+    public void showBookDetails() {
+        int row = listBuku.getjTable1().getSelectedRow();
+        int column = 0; // Mengambil kode buku pada tabel.
+        Buku newBuku = new Buku();
+        try {
+            newBuku = guestAccount.lihatDetailBuku(listBuku.getjTable1().getModel()
+                .getValueAt(row, column).toString());
+            listBuku.setVisible(false);
+            detailBuku.getJudulBuku().setText("Judul : "+newBuku.getJudulBuku());
+            detailBuku.getjLabel1().setText("Kode buku : "+newBuku.getKodeBuku());
+            detailBuku.getjLabel2().setText("Author : "+newBuku.getAuthor());
+            detailBuku.getjLabel3().setText("Tahun terbit : "+newBuku.getTahunTerbit());
+            detailBuku.getjLabel4().setText("Kategori : "+newBuku.getKategoriBuku());
+            detailBuku.getjLabel5().setText("Stok buku : "+newBuku.getStokBuku());
+            detailBuku.getjLabel6().setText("Banyak peminjaman : "+newBuku.getFrekPeminjaman());
+            detailBuku.getjLabel7().setText("Abstract : \n"+newBuku.getAbstrak());
+            detailBuku.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Pilih buku terlebih dahulu!");  
         }
-        
-        detailBuku.getJudulBuku().setText("Judul : "+buku.getJudulBuku());
-        detailBuku.getjLabel1().setText("Kode buku : "+buku.getKodeBuku());
-        detailBuku.getjLabel2().setText("Author : "+buku.getAuthor());
-        detailBuku.getjLabel3().setText("Tahun terbit : "+buku.getTahunTerbit());
-        detailBuku.getjLabel4().setText("Kategori : "+buku.getKategoriBuku());
-        detailBuku.getjLabel5().setText("Stok buku : "+buku.getStokBuku());
-        detailBuku.getjLabel6().setText("Banyak peminjaman : "+buku.getFrekPeminjaman());
-        detailBuku.getjLabel7().setText("Abstract : \n"+buku.getAbstrak());
-        detailBuku.setVisible(true);
     }
     
     

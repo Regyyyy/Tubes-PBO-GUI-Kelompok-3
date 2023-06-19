@@ -55,7 +55,7 @@ public class DatabaseBuku {
     public List<Buku> getBuku(String kodeBuku) {
         listBuku = new ArrayList<>();
         Statement statement;
-        String sql = "SELECT * FROM buku WHERE KodeBuku = " + kodeBuku;
+        String sql = "SELECT * FROM buku WHERE KodeBuku = '" + kodeBuku + "'";
         try {
             statement = dbConnection.getConnection().createStatement();
 

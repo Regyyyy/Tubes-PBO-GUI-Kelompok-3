@@ -24,7 +24,8 @@ public class Guest {
     /*
     Method untuk melakukan login.
     */
-    public boolean login(String loginAs, String username, String password, DatabaseMember memberDao, Mahasiswa mhsAccount, Admin adminAccount) throws Exception {
+    public boolean login(String loginAs, String username, String password, Mahasiswa mhsAccount, Admin adminAccount) throws Exception {
+        DatabaseMember memberDao = new DatabaseMember();
         try {
             if (loginAs == "Mahasiswa") {
                 adminAccount = null;
@@ -68,7 +69,7 @@ public class Guest {
     public List<Buku> cariBuku(String keyword, List<Buku> allBook) {
         List<Buku> listHasil = new ArrayList();
         for (Buku buku : allBook) {
-            if (buku.getJudulBuku().contains(keyword) || buku.getAuthor().contains(keyword)) {
+            if (buku.getJudulBuku().toLowerCase().contains(keyword) || buku.getAuthor().toLowerCase().contains(keyword)) {
                 listHasil.add(buku);
             }
         }
@@ -78,9 +79,10 @@ public class Guest {
     /*
     Method untuk mengambil buku yang ingin diperlihatkan.
     */
-    public void lihatDetailBuku() {
-        //Perlu akses ke class Riwayat
-        
+    public Buku lihatDetailBuku(String kodeBuku) {
+        DatabaseBuku bukuDao = new DatabaseBuku();
+        List<Buku> newBuku = bukuDao.getBuku(kodeBuku);
+        return newBuku.get(0);
     }
     
     /*
