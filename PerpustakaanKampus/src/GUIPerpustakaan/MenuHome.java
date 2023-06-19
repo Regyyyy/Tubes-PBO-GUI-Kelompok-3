@@ -125,6 +125,11 @@ public class MenuHome extends javax.swing.JFrame {
 
         ViewBukuRec2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         ViewBukuRec2.setText("View");
+        ViewBukuRec2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewBukuRec2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -164,6 +169,11 @@ public class MenuHome extends javax.swing.JFrame {
 
         ViewBukuRec3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         ViewBukuRec3.setText("View");
+        ViewBukuRec3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewBukuRec3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -203,6 +213,11 @@ public class MenuHome extends javax.swing.JFrame {
 
         ViewBukuRec4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         ViewBukuRec4.setText("View");
+        ViewBukuRec4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewBukuRec4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -242,6 +257,11 @@ public class MenuHome extends javax.swing.JFrame {
 
         ViewBukuRec5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         ViewBukuRec5.setText("View");
+        ViewBukuRec5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewBukuRec5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -458,6 +478,26 @@ public class MenuHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         ck.showSearch(this);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ViewBukuRec2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBukuRec2ActionPerformed
+        // TODO add your handling code here:
+        ck.showRecommendedBookDetails(1);
+    }//GEN-LAST:event_ViewBukuRec2ActionPerformed
+
+    private void ViewBukuRec3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBukuRec3ActionPerformed
+        // TODO add your handling code here:
+        ck.showRecommendedBookDetails(2);
+    }//GEN-LAST:event_ViewBukuRec3ActionPerformed
+
+    private void ViewBukuRec4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBukuRec4ActionPerformed
+        // TODO add your handling code here:
+        ck.showRecommendedBookDetails(3);
+    }//GEN-LAST:event_ViewBukuRec4ActionPerformed
+
+    private void ViewBukuRec5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBukuRec5ActionPerformed
+        // TODO add your handling code here:
+        ck.showRecommendedBookDetails(4);
+    }//GEN-LAST:event_ViewBukuRec5ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -470,6 +470,7 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
 
     private void KonfirmasiPeminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KonfirmasiPeminjamanActionPerformed
         // TODO add your handling code here:
+        ck.showMenuKonfirmasi();
     }//GEN-LAST:event_KonfirmasiPeminjamanActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -483,6 +484,7 @@ public class MenuHomeAdmin extends javax.swing.JFrame {
 
     private void UpdateBukuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBukuButtonActionPerformed
         // TODO add your handling code here:
+        ck.showMenuUpdateBuku();
     }//GEN-LAST:event_UpdateBukuButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

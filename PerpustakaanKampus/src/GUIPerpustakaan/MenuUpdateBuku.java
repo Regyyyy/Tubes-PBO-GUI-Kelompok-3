@@ -213,6 +213,11 @@ public class MenuUpdateBuku extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableAdmin);
 
         BackButton.setText("Kembali");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
 
         Header.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         Header.setText("Update Buku");
@@ -294,6 +299,11 @@ public class MenuUpdateBuku extends javax.swing.JFrame {
     private void namaField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_namaField1ActionPerformed
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        // TODO add your handling code here:
+        ck.showHomeMenu(this);
+    }//GEN-LAST:event_BackButtonActionPerformed
 
     /**
      * @param args the command line arguments

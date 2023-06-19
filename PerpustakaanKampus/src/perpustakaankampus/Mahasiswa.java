@@ -4,7 +4,12 @@
  */
 package perpustakaankampus;
 
+import DatabasePerpustakaan.DatabaseBuku;
 import DatabasePerpustakaan.DatabaseRiwayatPeminjaman;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -26,11 +31,48 @@ public class Mahasiswa extends Guest implements Logout {
         this.nim = nim;
     }
     
-    public void meminjamBuku() {}
+    public Peminjaman meminjamBuku(String kodeBuku) {
+        DatabaseBuku bukuDao = new DatabaseBuku();
+        DatabaseRiwayatPeminjaman peminjamanDao = new DatabaseRiwayatPeminjaman();
+        List<Peminjaman> allPeminjaman = peminjamanDao.getAllPeminjaman();
+        List<Buku> newBuku = bukuDao.getBuku(kodeBuku);
+        Buku buku = newBuku.get(0);
+        Peminjaman peminjamanBaru = new Peminjaman();
+        peminjamanBaru.setIdPeminjaman(Integer.toString(allPeminjaman.size()+1));
+        peminjamanBaru.setNim(nim);
+        peminjamanBaru.setKodeBuku(buku.getKodeBuku());
+        peminjamanBaru.setJudulBuku(buku.getJudulBuku());
+        ZoneId defaultID = ZoneId.systemDefault();
+        LocalDate localDatePinjam = LocalDate.now();
+        peminjamanBaru.setTanggalPinjam(localDatePinjam);
+        LocalDate localDateBatas = LocalDate.now().plusDays(7);
+        peminjamanBaru.setBatasPinjam(localDateBatas);
+        peminjamanBaru.setDisetujui(false);
+        peminjamanBaru.setSelesai(false);
+        peminjamanBaru.setDenda(0);
+        peminjamanBaru.setKondisiBuku(null);
+        return peminjamanBaru;
+    }
     
     public void mengembalikanBuku() {}
     
-    public void memperpanjangBuku() {}
+    public void memperpanjangBuku(String idPeminjaman, String nim) {
+        DatabaseRiwayatPeminjaman peminjamanDao = new DatabaseRiwayatPeminjaman();
+        List<Peminjaman> newPeminjaman = peminjamanDao.getPeminjaman(nim);
+        Peminjaman peminjamanMhs = new Peminjaman();
+        boolean found = false;
+        for (int i = 0; i < newPeminjaman.size() && !found ; i++) {
+            if (newPeminjaman.get(i).getIdPeminjaman().equals(idPeminjaman)) {
+                found = true;
+                peminjamanMhs = newPeminjaman.get(i);
+            }
+        }
+//        Date batasPinjam = peminjamanMhs.getBatasPinjam();
+//        //ZoneId defaultID = ZoneId.systemDefault();
+//        LocalDate localDateBatasPinjam = batasPinjam.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//        localDateBatasPinjam = localDateBatasPinjam.plusDays(7);
+//        peminjamanMhs.setBatasPinjam(Date.from(localDateBatasPinjam.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+    }
     
     public TablePeminjaman lihatRiwayat(String nim) {
         List<Peminjaman> listAllPeminjaman;

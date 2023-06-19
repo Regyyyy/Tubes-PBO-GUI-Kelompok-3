@@ -4,6 +4,8 @@
  */
 package perpustakaankampus;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -15,8 +17,8 @@ public class Peminjaman {
     private String nim;
     private String kodeBuku;
     private String judulBuku;
-    private Date tanggalPinjam;
-    private Date batasPinjam;
+    private LocalDate tanggalPinjam;
+    private LocalDate batasPinjam;
     private boolean disetujui;
     private boolean selesai;
     private int denda;
@@ -24,7 +26,7 @@ public class Peminjaman {
     
     public Peminjaman() {}
     
-    public Peminjaman(String idPeminjaman, String nim, String kodeBuku, String judulBuku, Date tanggalPinjam) {
+    public Peminjaman(String idPeminjaman, String nim, String kodeBuku, String judulBuku, LocalDate tanggalPinjam) {
         this.idPeminjaman = idPeminjaman;
         this.nim = nim;
         this.kodeBuku = kodeBuku;
@@ -95,28 +97,28 @@ public class Peminjaman {
     /**
      * @return the tanggalPinjam
      */
-    public Date getTanggalPinjam() {
+    public LocalDate getTanggalPinjam() {
         return tanggalPinjam;
     }
 
     /**
      * @param tanggalPinjam the tanggalPinjam to set
      */
-    public void setTanggalPinjam(Date tanggalPinjam) {
+    public void setTanggalPinjam(LocalDate tanggalPinjam) {
         this.tanggalPinjam = tanggalPinjam;
     }
 
     /**
      * @return the batasPinjam
      */
-    public Date getBatasPinjam() {
+    public LocalDate getBatasPinjam() {
         return batasPinjam;
     }
 
     /**
      * @param batasPinjam the batasPinjam to set
      */
-    public void setBatasPinjam(Date batasPinjam) {
+    public void setBatasPinjam(LocalDate batasPinjam) {
         this.batasPinjam = batasPinjam;
     }
 

@@ -15,7 +15,7 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMah
     /**
      * Creates new form MenuRiwayatPeminjaman1
      */
-    ControllerApp ck;
+    private ControllerApp ck;
     
     public MenuRiwayatPeminjaman(ControllerApp ck) {
         initComponents();
@@ -51,6 +51,11 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMah
         Header.setText("Riwayat Peminjaman");
 
         jButton1.setText("Perpanjang Peminjaman");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,8 +149,13 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMah
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
-        ck.showHomeMenu(this);
+        getCk().showHomeMenu(this);
     }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ck.extendBorrowBook();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,7 +197,6 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMah
     private javax.swing.JLabel Header;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
@@ -200,10 +209,24 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMah
     }
 
     /**
+     * @param ck the ck to set
+     */
+    public void setCk(ControllerApp ck) {
+        this.ck = ck;
+    }
+
+    /**
      * @return the BackButton
      */
     public javax.swing.JButton getBackButton() {
         return BackButton;
+    }
+
+    /**
+     * @param BackButton the BackButton to set
+     */
+    public void setBackButton(javax.swing.JButton BackButton) {
+        this.BackButton = BackButton;
     }
 
     /**
@@ -214,10 +237,24 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMah
     }
 
     /**
+     * @param Header the Header to set
+     */
+    public void setHeader(javax.swing.JLabel Header) {
+        this.Header = Header;
+    }
+
+    /**
      * @return the jButton1
      */
     public javax.swing.JButton getjButton1() {
         return jButton1;
+    }
+
+    /**
+     * @param jButton1 the jButton1 to set
+     */
+    public void setjButton1(javax.swing.JButton jButton1) {
+        this.jButton1 = jButton1;
     }
 
     /**
@@ -228,10 +265,24 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMah
     }
 
     /**
-     * @return the jScrollPane1
+     * @param jPanel1 the jPanel1 to set
      */
-    public javax.swing.JScrollPane getjScrollPane1() {
-        return jScrollPane1;
+    public void setjPanel1(javax.swing.JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    /**
+     * @return the jScrollPane2
+     */
+    public javax.swing.JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    /**
+     * @param jScrollPane2 the jScrollPane2 to set
+     */
+    public void setjScrollPane2(javax.swing.JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
     }
 
     /**
@@ -240,5 +291,14 @@ public class MenuRiwayatPeminjaman extends javax.swing.JFrame implements MenuMah
     public javax.swing.JTable getjTable1() {
         return jTable1;
     }
+
+    /**
+     * @param jTable1 the jTable1 to set
+     */
+    public void setjTable1(javax.swing.JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+
+    
     
 }

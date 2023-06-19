@@ -4,6 +4,10 @@
  */
 package perpustakaankampus;
 
+import DatabasePerpustakaan.DatabaseBuku;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -31,12 +35,26 @@ public class Buku {
         this.abstrak = abstrak;
     };
 
-    public void tambahStokBuku(int jumlah) {
+    public void tambahStokBuku(String kodeBuku, int jumlah) {
+        DatabaseBuku bukuDao = new DatabaseBuku();
+        List<Buku> newBuku = bukuDao.getBuku(kodeBuku);
         setStokBuku(getStokBuku() + jumlah);
+        newBuku.get(0).setStokBuku(this.getStokBuku());
+        bukuDao.updateBuku(newBuku.get(0));
     }
     
-    public void kurangStokBuku(int jumlah) {
-        setStokBuku(getStokBuku() - jumlah);
+    public void kurangStokBuku(String kodeBuku, int jumlah) {
+        if (stokBuku == 0) {
+            JOptionPane.showMessageDialog(null,"Stok buku 0, tidak bisa dikurangi!");  
+        } else if (stokBuku - jumlah < 0) {
+            JOptionPane.showMessageDialog(null,"Stok buku tidak dapat dikurangi sebanyak jumlah!");  
+        } else {
+            DatabaseBuku bukuDao = new DatabaseBuku();
+            List<Buku> newBuku = bukuDao.getBuku(kodeBuku);
+            setStokBuku(getStokBuku() - jumlah);
+            newBuku.get(0).setStokBuku(this.getStokBuku());
+            bukuDao.updateBuku(newBuku.get(0));
+        }
     }
 
     /**

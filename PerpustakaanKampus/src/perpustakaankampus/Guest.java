@@ -16,6 +16,9 @@ import java.util.*;
 public class Guest {
     public Guest() {}
     
+    /*
+    Method untuk melihat semua daftar buku yang ada pada database.
+    */
     public TableBuku lihatDaftarBuku(List<Buku> allBook) {
         TableBuku table = new TableBuku(allBook);
         return table;

@@ -5,6 +5,7 @@
 package GUIPerpustakaan;
 
 import ControllerPerpustakaan.ControllerApp;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,7 +16,7 @@ public class MenuKonfirmasi extends javax.swing.JFrame {
     /**
      * Creates new form MenuKonfirmasi
      */
-    ControllerApp ck;
+    private ControllerApp ck;
     
     public MenuKonfirmasi(ControllerApp ck) {
         initComponents();
@@ -53,11 +54,21 @@ public class MenuKonfirmasi extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Konfirmasi");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         Header.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         Header.setText("Konfirmasi Peminjaman Buku");
 
         BackButton.setText("Kembali");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,6 +105,19 @@ public class MenuKonfirmasi extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        // TODO add your handling code here:
+        getCk().showHomeMenu(this);
+    }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int input = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menyetujui peminjaman ini?", "Peminjaman Buku", JOptionPane.YES_NO_OPTION);
+        if (input == 0) {
+            ck.confirmRequestBorrow();
+        } 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,4 +161,89 @@ public class MenuKonfirmasi extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the ck
+     */
+    public ControllerApp getCk() {
+        return ck;
+    }
+
+    /**
+     * @param ck the ck to set
+     */
+    public void setCk(ControllerApp ck) {
+        this.ck = ck;
+    }
+
+    /**
+     * @return the BackButton
+     */
+    public javax.swing.JButton getBackButton() {
+        return BackButton;
+    }
+
+    /**
+     * @param BackButton the BackButton to set
+     */
+    public void setBackButton(javax.swing.JButton BackButton) {
+        this.BackButton = BackButton;
+    }
+
+    /**
+     * @return the Header
+     */
+    public javax.swing.JLabel getHeader() {
+        return Header;
+    }
+
+    /**
+     * @param Header the Header to set
+     */
+    public void setHeader(javax.swing.JLabel Header) {
+        this.Header = Header;
+    }
+
+    /**
+     * @return the jButton1
+     */
+    public javax.swing.JButton getjButton1() {
+        return jButton1;
+    }
+
+    /**
+     * @param jButton1 the jButton1 to set
+     */
+    public void setjButton1(javax.swing.JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the jTable1
+     */
+    public javax.swing.JTable getjTable1() {
+        return jTable1;
+    }
+
+    /**
+     * @param jTable1 the jTable1 to set
+     */
+    public void setjTable1(javax.swing.JTable jTable1) {
+        this.jTable1 = jTable1;
+    }
+    
 }

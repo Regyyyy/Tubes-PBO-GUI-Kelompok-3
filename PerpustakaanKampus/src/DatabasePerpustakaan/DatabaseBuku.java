@@ -104,17 +104,18 @@ public class DatabaseBuku {
 
     public void updateBuku(Buku buku) {
         String sql;
-        sql = "UPDATE buku SET KodeBuku = ?, JudulBuku = ?, Penulis = ?, KategoriBuku = ?, TahunTerbit = ?, StokBuku = ?, frekuensi = ?, Abstrak = ?";
+        sql = "UPDATE buku SET JudulBuku = ?, Penulis = ?, KategoriBuku = ?, TahunTerbit = ?, StokBuku = ?, frekuensi = ?, Abstrak = ? WHERE KodeBuku = ?";
         try {
             PreparedStatement state = dbConnection.getConnection().prepareStatement(sql);
-            state.setString(1, buku.getKodeBuku());
-            state.setString(2, buku.getJudulBuku());
-            state.setString(3, buku.getAuthor());
-            state.setString(4, buku.getKategoriBuku());
-            state.setString(5, buku.getTahunTerbit());
-            state.setInt(6, buku.getStokBuku());
-            state.setInt(7, buku.getFrekPeminjaman());
-            state.setString(8, buku.getAbstrak());
+            
+            state.setString(1, buku.getJudulBuku());
+            state.setString(2, buku.getAuthor());
+            state.setString(3, buku.getKategoriBuku());
+            state.setString(4, buku.getTahunTerbit());
+            state.setInt(5, buku.getStokBuku());
+            state.setInt(6, buku.getFrekPeminjaman());
+            state.setString(7, buku.getAbstrak());
+            state.setString(8, buku.getKodeBuku());
 
             state.executeUpdate();
 
