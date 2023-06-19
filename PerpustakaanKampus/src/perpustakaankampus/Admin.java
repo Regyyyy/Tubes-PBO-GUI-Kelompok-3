@@ -4,6 +4,9 @@
  */
 package perpustakaankampus;
 
+import DatabasePerpustakaan.DatabaseBuku;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -23,7 +26,12 @@ public class Admin extends Guest implements Logout {
         this.kodePustakawan = kodePustakawan;
     }
     
-    public void menambahBuku() {}
+    public void menambahBuku(Buku newBook) {
+        DatabaseBuku bukuDao = new DatabaseBuku();
+        bukuDao.insertBuku(newBook);
+                    JOptionPane.showMessageDialog(null,"Berhasil menambah buku.");        
+
+    }
     
     public void menghapusBuku() {}
     

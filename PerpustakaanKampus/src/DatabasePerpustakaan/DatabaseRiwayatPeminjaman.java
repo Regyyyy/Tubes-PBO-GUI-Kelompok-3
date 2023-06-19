@@ -90,23 +90,23 @@ public class DatabaseRiwayatPeminjaman {
     
     public void updatePeminjaman(Peminjaman peminjaman){
         String sql;
-        sql = "UPDATE riwayat_peminjaman SET IDPeminjaman = ?, NIM = ?, KodeBuku = ?, JudulBuku = ?, TanggalPinjam = ?, BatasPinjam = ?, Disetujui = ?, Selesai = ?, Denda = ?, KondisiBuku = ?";
+        sql = "UPDATE riwayat_peminjaman SET NIM = ?, KodeBuku = ?, JudulBuku = ?, TanggalPinjam = ?, BatasPinjam = ?, Disetujui = ?, Selesai = ?, Denda = ?, KondisiBuku = ? WHERE IDPeminjaman = ?";
         try {
             PreparedStatement state = dbConnection.getConnection().prepareStatement(sql);
-            state.setString(1, peminjaman.getIdPeminjaman());
-            state.setString(2, peminjaman.getNim());
-            state.setString(3, peminjaman.getKodeBuku());
-            state.setString(4,  peminjaman.getJudulBuku());
+            state.setString(1, peminjaman.getNim());
+            state.setString(2, peminjaman.getKodeBuku());
+            state.setString(3,  peminjaman.getJudulBuku());
 //            Date date = peminjaman.getTanggalPinjam();
 //            LocalDate localdate = date.toInstant()
 //      .atZone(ZoneId.systemDefault())
 //      .toLocalDate();
-            state.setDate(5, java.sql.Date.valueOf(peminjaman.getTanggalPinjam()));
-            state.setDate(6, java.sql.Date.valueOf(peminjaman.getBatasPinjam()));
-            state.setBoolean(7,  peminjaman.isDisetujui());
-            state.setBoolean(8, peminjaman.isSelesai());
-            state.setInt(9, peminjaman.getDenda());
-            state.setString(10, peminjaman.getKondisiBuku());
+            state.setDate(4, java.sql.Date.valueOf(peminjaman.getTanggalPinjam()));
+            state.setDate(5, java.sql.Date.valueOf(peminjaman.getBatasPinjam()));
+            state.setBoolean(6,  peminjaman.isDisetujui());
+            state.setBoolean(7, peminjaman.isSelesai());
+            state.setInt(8, peminjaman.getDenda());
+            state.setString(9, peminjaman.getKondisiBuku());
+            state.setString(10, peminjaman.getIdPeminjaman());
             
             state.executeUpdate();
             

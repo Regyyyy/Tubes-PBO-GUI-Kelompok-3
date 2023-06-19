@@ -83,7 +83,7 @@ public class DatabaseBuku {
 
     public void insertBuku(Buku buku) {
         String sql;
-        sql = "INSERT INTO buku (KodeBuku, JudulBuku, Penulis, KategoriBuku, TahunTerbit, StokBuku, frekuensi, Abstrak) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO buku (KodeBuku, JudulBuku, Penulis, KategoriBuku, TahunTerbit, StokBuku, frekuensi, Abstrak) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement state = dbConnection.getConnection().prepareStatement(sql);
             state.setString(1, buku.getKodeBuku());

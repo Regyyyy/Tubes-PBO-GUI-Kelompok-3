@@ -15,7 +15,7 @@ public class TablePeminjaman extends AbstractTableModel {
     @Override
     public int getRowCount() { return listPeminjaman.size(); }
     @Override
-    public int getColumnCount() { return 8; }
+    public int getColumnCount() { return 9; }
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {

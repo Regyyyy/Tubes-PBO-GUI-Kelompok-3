@@ -245,10 +245,61 @@ public class ControllerApp {
     }
     
     /*
+    Method untuk pengembalian buku.
+    */
+    public void returnBook() {
+        if (pengembalianBuku.getjTable1().getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null,"Pilih peminjaman terlebih dahulu!");
+        } else {
+            int row = pengembalianBuku.getjTable1().getSelectedRow();
+            int column = 0; // Mengambil kode buku pada tabel.
+            String idPeminjaman = pengembalianBuku.getjTable1().getModel().getValueAt(row, column).toString();
+            List<Peminjaman> allPeminjaman = dbPeminjaman.getAllPeminjaman();
+            for (Peminjaman peminjaman : allPeminjaman) {
+                if (peminjaman.getIdPeminjaman().equals(idPeminjaman)) {
+                    peminjaman.setSelesai(true);
+                    dbPeminjaman.updatePeminjaman(peminjaman);
+                    pengembalianBuku.setVisible(false);
+                    showMenuKonfirmasi();
+                }
+            }
+            JOptionPane.showMessageDialog(null,"Telah dilakukan konfirmasi peminjaman.");        
+        }
+    }
+    
+    /*
     Method untuk menambahkan buku sesuai inputan admin.
     */
     public void addBook() {
-        
+        Buku newBook = new Buku();
+        newBook.setKodeBuku(updateBuku.getKodeField1().getText());
+        newBook.setJudulBuku(updateBuku.getKodeField().getText());
+        newBook.setAuthor(updateBuku.getNamaField().getText());
+        newBook.setKategoriBuku(updateBuku.getNamaField1().getText());
+        newBook.setTahunTerbit(updateBuku.getUsernameField().getText());
+        newBook.setAbstrak(updateBuku.getPasswordField().getText());
+        newBook.setFrekPeminjaman(0);
+        newBook.setStokBuku(3);
+        adminAccount.menambahBuku(newBook);
+        showMenuUpdateBuku();
+    }
+    
+    /*
+    Method untuk memasukkan buku yang dipilih ke text box.
+    */
+    public void selectBook() {
+        int row = updateBuku.getTableAdmin().getSelectedRow();
+        int coloumn = 0;
+        String kodeBuku = updateBuku.getTableAdmin().getModel()
+                    .getValueAt(row, coloumn).toString();
+        List<Buku> buku = dbBuku.getBuku(kodeBuku);
+        Buku newBuku = buku.get(0);
+        updateBuku.getKodeField().setText(newBuku.getJudulBuku());
+        updateBuku.getKodeField1().setText(newBuku.getKodeBuku());
+        updateBuku.getNamaField().setText(newBuku.getAuthor());
+        updateBuku.getNamaField1().setText(newBuku.getKategoriBuku());
+        updateBuku.getUsernameField().setText(newBuku.getTahunTerbit());
+        updateBuku.getPasswordField().setText(newBuku.getAbstrak());
     }
     
     /*
@@ -266,11 +317,17 @@ public class ControllerApp {
                 if (peminjaman.getIdPeminjaman().equals(idPeminjaman)) {
                     peminjaman.setDisetujui(true);
                     dbPeminjaman.updatePeminjaman(peminjaman);
+                    showMenuKonfirmasi();
                 }
             }
             JOptionPane.showMessageDialog(null,"Telah dilakukan konfirmasi peminjaman.");        
         }
     }
+    
+    /*
+    Method untuk menampilkan peminjaman yang sudah diberi true untuk disetujui.
+    */
+//    public void 
     
     
     // Beberapa method navigasi.
@@ -297,9 +354,9 @@ public class ControllerApp {
     */
     public void showLoginMenu() {
         home.setVisible(false);
-        login.getjTextField1().setText("jujun");
-        login.getjPasswordField1().setText("jujun123");
-        login.getjRadioButton2().setSelected(true);
+        login.getjTextField1().setText("regyrenanda");
+        login.getjPasswordField1().setText("regy123");
+        login.getjRadioButton1().setSelected(true);
         login.setVisible(true);
     }
     
@@ -421,6 +478,17 @@ public class ControllerApp {
     public void showPengembalianBukuMenu() {
         homeMhs.setVisible(false);
         pengembalianBuku = new MenuPengembalianBuku(this);
+        List<Peminjaman> listAllPeminjaman;
+        List<Peminjaman> newListPeminjaman = new ArrayList();
+        DatabaseRiwayatPeminjaman peminjamanDao = new DatabaseRiwayatPeminjaman();
+        listAllPeminjaman = peminjamanDao.getAllPeminjaman();
+        for (Peminjaman peminjaman : listAllPeminjaman) {
+            if (peminjaman.getNim().equals(mhsAccount.getNim()) && peminjaman.isDisetujui() && !peminjaman.isSelesai()) {
+                newListPeminjaman.add(peminjaman);
+            }
+        }
+        TablePeminjaman table = new TablePeminjaman(newListPeminjaman);
+        pengembalianBuku.getjTable1().setModel(table);
         pengembalianBuku.setVisible(true);
     }
     
@@ -430,6 +498,8 @@ public class ControllerApp {
     public void showMenuUpdateBuku() {
         homeAdmin.setVisible(false);
         updateBuku = new MenuUpdateBuku(this);
+        TableBuku table = guestAccount.lihatDaftarBuku(AllBook);
+        updateBuku.getTableAdmin().setModel(table);
         updateBuku.setVisible(true);
     }
     
@@ -453,4 +523,6 @@ public class ControllerApp {
 
         konfirmasi.setVisible(true);
     }
+    
+
 }

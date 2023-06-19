@@ -15,7 +15,7 @@ public class MenuUpdateBuku extends javax.swing.JFrame {
     /**
      * Creates new form MenuUpdateBuku
      */
-    ControllerApp ck;
+    private ControllerApp ck;
     
     public MenuUpdateBuku(ControllerApp ck) {
         initComponents();
@@ -267,10 +267,7 @@ public class MenuUpdateBuku extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-//        setField();
-//        activeField();
-//        kodeField.requestFocus();
-//        tambahData();
+        ck.addBook();
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
@@ -290,10 +287,7 @@ public class MenuUpdateBuku extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void tableAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAdminMouseClicked
-//        selectData();
-//        btnEdit.setEnabled(true);
-//        activeField();
-//        btnSimpan.setEnabled(true);
+        ck.selectBook();
     }//GEN-LAST:event_tableAdminMouseClicked
 
     private void namaField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaField1ActionPerformed
@@ -302,7 +296,7 @@ public class MenuUpdateBuku extends javax.swing.JFrame {
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
         // TODO add your handling code here:
-        ck.showHomeMenu(this);
+        getCk().showHomeMenu(this);
     }//GEN-LAST:event_BackButtonActionPerformed
 
     /**
@@ -363,4 +357,313 @@ public class MenuUpdateBuku extends javax.swing.JFrame {
     private javax.swing.JTable tableAdmin;
     private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the ck
+     */
+    public ControllerApp getCk() {
+        return ck;
+    }
+
+    /**
+     * @param ck the ck to set
+     */
+    public void setCk(ControllerApp ck) {
+        this.ck = ck;
+    }
+
+    /**
+     * @return the BackButton
+     */
+    public javax.swing.JButton getBackButton() {
+        return BackButton;
+    }
+
+    /**
+     * @param BackButton the BackButton to set
+     */
+    public void setBackButton(javax.swing.JButton BackButton) {
+        this.BackButton = BackButton;
+    }
+
+    /**
+     * @return the Header
+     */
+    public javax.swing.JLabel getHeader() {
+        return Header;
+    }
+
+    /**
+     * @param Header the Header to set
+     */
+    public void setHeader(javax.swing.JLabel Header) {
+        this.Header = Header;
+    }
+
+    /**
+     * @return the btnHapus
+     */
+    public javax.swing.JButton getBtnHapus() {
+        return btnHapus;
+    }
+
+    /**
+     * @param btnHapus the btnHapus to set
+     */
+    public void setBtnHapus(javax.swing.JButton btnHapus) {
+        this.btnHapus = btnHapus;
+    }
+
+    /**
+     * @return the btnSimpan
+     */
+    public javax.swing.JButton getBtnSimpan() {
+        return btnSimpan;
+    }
+
+    /**
+     * @param btnSimpan the btnSimpan to set
+     */
+    public void setBtnSimpan(javax.swing.JButton btnSimpan) {
+        this.btnSimpan = btnSimpan;
+    }
+
+    /**
+     * @return the btnTambah
+     */
+    public javax.swing.JButton getBtnTambah() {
+        return btnTambah;
+    }
+
+    /**
+     * @param btnTambah the btnTambah to set
+     */
+    public void setBtnTambah(javax.swing.JButton btnTambah) {
+        this.btnTambah = btnTambah;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @param jLabel2 the jLabel2 to set
+     */
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @param jLabel3 the jLabel3 to set
+     */
+    public void setjLabel3(javax.swing.JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    /**
+     * @return the jLabel4
+     */
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    /**
+     * @param jLabel4 the jLabel4 to set
+     */
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    /**
+     * @return the jLabel5
+     */
+    public javax.swing.JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    /**
+     * @param jLabel5 the jLabel5 to set
+     */
+    public void setjLabel5(javax.swing.JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    /**
+     * @return the jLabel6
+     */
+    public javax.swing.JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    /**
+     * @param jLabel6 the jLabel6 to set
+     */
+    public void setjLabel6(javax.swing.JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    /**
+     * @return the jLabel7
+     */
+    public javax.swing.JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    /**
+     * @param jLabel7 the jLabel7 to set
+     */
+    public void setjLabel7(javax.swing.JLabel jLabel7) {
+        this.jLabel7 = jLabel7;
+    }
+
+    /**
+     * @return the jPanel2
+     */
+    public javax.swing.JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    /**
+     * @param jPanel2 the jPanel2 to set
+     */
+    public void setjPanel2(javax.swing.JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    /**
+     * @return the jPanel3
+     */
+    public javax.swing.JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    /**
+     * @param jPanel3 the jPanel3 to set
+     */
+    public void setjPanel3(javax.swing.JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the kodeField
+     */
+    public javax.swing.JTextField getKodeField() {
+        return kodeField;
+    }
+
+    /**
+     * @param kodeField the kodeField to set
+     */
+    public void setKodeField(javax.swing.JTextField kodeField) {
+        this.kodeField = kodeField;
+    }
+
+    /**
+     * @return the kodeField1
+     */
+    public javax.swing.JTextField getKodeField1() {
+        return kodeField1;
+    }
+
+    /**
+     * @param kodeField1 the kodeField1 to set
+     */
+    public void setKodeField1(javax.swing.JTextField kodeField1) {
+        this.kodeField1 = kodeField1;
+    }
+
+    /**
+     * @return the namaField
+     */
+    public javax.swing.JTextField getNamaField() {
+        return namaField;
+    }
+
+    /**
+     * @param namaField the namaField to set
+     */
+    public void setNamaField(javax.swing.JTextField namaField) {
+        this.namaField = namaField;
+    }
+
+    /**
+     * @return the namaField1
+     */
+    public javax.swing.JTextField getNamaField1() {
+        return namaField1;
+    }
+
+    /**
+     * @param namaField1 the namaField1 to set
+     */
+    public void setNamaField1(javax.swing.JTextField namaField1) {
+        this.namaField1 = namaField1;
+    }
+
+    /**
+     * @return the passwordField
+     */
+    public javax.swing.JTextField getPasswordField() {
+        return passwordField;
+    }
+
+    /**
+     * @param passwordField the passwordField to set
+     */
+    public void setPasswordField(javax.swing.JTextField passwordField) {
+        this.passwordField = passwordField;
+    }
+
+    /**
+     * @return the tableAdmin
+     */
+    public javax.swing.JTable getTableAdmin() {
+        return tableAdmin;
+    }
+
+    /**
+     * @param tableAdmin the tableAdmin to set
+     */
+    public void setTableAdmin(javax.swing.JTable tableAdmin) {
+        this.tableAdmin = tableAdmin;
+    }
+
+    /**
+     * @return the usernameField
+     */
+    public javax.swing.JTextField getUsernameField() {
+        return usernameField;
+    }
+
+    /**
+     * @param usernameField the usernameField to set
+     */
+    public void setUsernameField(javax.swing.JTextField usernameField) {
+        this.usernameField = usernameField;
+    }
+    
 }

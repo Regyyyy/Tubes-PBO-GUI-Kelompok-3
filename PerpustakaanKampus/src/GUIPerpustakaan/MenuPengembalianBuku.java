@@ -5,6 +5,7 @@
 package GUIPerpustakaan;
 
 import ControllerPerpustakaan.ControllerApp;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -53,6 +54,11 @@ public class MenuPengembalianBuku extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Kembalikan Buku");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         BackButton.setText("Kembali");
         BackButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +110,14 @@ public class MenuPengembalianBuku extends javax.swing.JFrame {
         // TODO add your handling code here:
         ck.showHomeMenu(this);
     }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int input = JOptionPane.showConfirmDialog(null, "Apakah anda ingin mengakhiri peminjaman ini?", "Pengembalian Buku", JOptionPane.YES_NO_OPTION);
+        if (input == 0) {
+            ck.returnBook();
+        } 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
