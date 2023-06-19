@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,14 +65,12 @@ public class Mahasiswa extends Guest implements Logout {
         for (int i = 0; i < newPeminjaman.size() && !found ; i++) {
             if (newPeminjaman.get(i).getIdPeminjaman().equals(idPeminjaman)) {
                 found = true;
-                peminjamanMhs = newPeminjaman.get(i);
+                newPeminjaman.get(i).setBatasPinjam(newPeminjaman.get(i).getBatasPinjam().plusDays(7));
+                JOptionPane.showMessageDialog(null,"Batas pinjam berhasil ditambah selama seminggu.");
+                peminjamanDao.updatePeminjaman(newPeminjaman.get(i));
             }
         }
-//        Date batasPinjam = peminjamanMhs.getBatasPinjam();
-//        //ZoneId defaultID = ZoneId.systemDefault();
-//        LocalDate localDateBatasPinjam = batasPinjam.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//        localDateBatasPinjam = localDateBatasPinjam.plusDays(7);
-//        peminjamanMhs.setBatasPinjam(Date.from(localDateBatasPinjam.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                   
     }
     
     public TablePeminjaman lihatRiwayat(String nim) {

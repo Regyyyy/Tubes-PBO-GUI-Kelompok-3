@@ -240,7 +240,6 @@ public class ControllerApp {
                     .getValueAt(row, columnId).toString(),
                     riwayat.getjTable1().getModel()
                     .getValueAt(row, columnNim).toString());
-            JOptionPane.showMessageDialog(null,"Batas pinjam berhasil ditambah selama seminggu.");        
         }
     }
     
@@ -317,6 +316,7 @@ public class ControllerApp {
                 if (peminjaman.getIdPeminjaman().equals(idPeminjaman)) {
                     peminjaman.setDisetujui(true);
                     dbPeminjaman.updatePeminjaman(peminjaman);
+                    konfirmasi.setVisible(false);
                     showMenuKonfirmasi();
                 }
             }
@@ -354,8 +354,8 @@ public class ControllerApp {
     */
     public void showLoginMenu() {
         home.setVisible(false);
-        login.getjTextField1().setText("regyrenanda");
-        login.getjPasswordField1().setText("regy123");
+        login.getjTextField1().setText("");
+        login.getjPasswordField1().setText("");
         login.getjRadioButton1().setSelected(true);
         login.setVisible(true);
     }
